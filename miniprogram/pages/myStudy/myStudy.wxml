@@ -1,0 +1,44 @@
+<!--miniprogram/pages/myStudy/myStudy.wxml-->
+<view class="wrap">
+<view class="titleBar">
+  <view class="status">
+    <li>
+      <text class="{{status == '1' ? 'active':''}}" bindtap="showStatus" data-status="1">我的课程</text>
+    </li>
+    <li>
+      <text class="{{status == '2' ? 'active':''}}" bindtap="showStatus" data-status="2">我的微专业</text>
+    </li>
+  </view>
+</view>
+
+  
+
+  <scroll-view class="lists" scroll-y>
+    
+    
+
+      <view class="none" wx:if="{{curLists.length<1}}">
+        <image src="../../images/newBlank.png" 
+        alt="空结果" mode="widthFix"/>
+        <block wx:if="{{status == '1'}}">
+          <text class="nodata">未开始学习哦~</text>
+          <button type="primary" class="none-btn" bindtap="swichTab">去发现值得学习的课程</button>
+        </block>
+        <block wx:else>
+          <text class="nodata">未学习微专业哦~</text>
+          <button type="primary" class="none-btn" bindtap="swichTab">去发现精彩微专业</button>
+        </block>
+      </view>
+
+
+
+
+      <view class="item" wx:key="index" wx:for="{{curLists}}" >
+        <view class="content">      
+          <text class="title">{{item.text}}</text>
+        </view>  
+      </view>
+
+  </scroll-view>
+</view>
+
