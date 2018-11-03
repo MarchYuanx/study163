@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "van-search": "../../vant-weapp/search/index",
+        "box-module":"../../components/box-module/index",
+        "course-module":"../../components/course-module/index",
+        "special-module":"../../components/special-module/index"
+    }
+}

@@ -1,0 +1,29 @@
+<!--components/box-module/box-module.wxml-->
+<!-- <view> -->
+  <view class="divide"></view>
+  <view class="box-module">
+    <text class="box-title">{{title}}</text>
+    <block  wx:if="{{title !== '畅销好课' && title !== '专题'}}" >
+      <text class="box-more">更多</text>
+    </block>
+      <!-- <view wx:for="{{items}}"  wx:key="index">
+        <view class="course" >
+          <image class="course-image " src="{{item.image}}" mode="widthFix"/>
+          <view class="course-title">{{item.title}}</view>
+          <view class="course-price">{{item.price}}</view>
+        </view>
+      </view> -->
+
+      <!-- <block>
+        <view class="special">
+          <image src="{{image}}" mode="widthFix"/>
+          <view class="course-title">{{title}}</view>
+          <view class="course-price">{{price}}</view>
+        </view>
+      
+      </block> -->
+
+      <slot />
+  </view>
+
+<!-- </view> -->
