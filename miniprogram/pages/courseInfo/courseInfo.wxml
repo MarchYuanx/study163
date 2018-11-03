@@ -1,0 +1,30 @@
+<!--miniprogram/pages/courseInfo/courseInfo.wxml-->
+<view>
+    <image src="https://edu-image.nosdn.127.net/43e27d1e-021c-49e5-a7da-bae92cefb786.jpg?imageView&amp;quality=100&amp;crop=0_0_879_495&amp;thumbnail=450y250"
+    class="hd_image" mode="widthFix"></image>
+</view>
+
+<view class="titleBar">
+  <ul class="status">
+    <li>
+      <text class="{{status == '1' ? 'active':''}}" bindtap="showStatus" data-status="1">简介</text>
+    </li>
+    <li>
+      <text class="{{status == '2' ? 'active':''}}" bindtap="showStatus" data-status="2">目录</text>
+    </li>
+    <li>
+      <text class="{{status == '3' ? 'active':''}}" bindtap="showStatus" data-status="2">评价</text>
+    </li>
+  </ul>
+</view>
+
+<van-cell-group>
+  <van-cell title="test" />
+  <van-cell title="test" />
+</van-cell-group>
+
+
+
+<box-module title="课程介绍" >
+
+</box-module>

@@ -1,43 +1,147 @@
-<!--index.wxml-->
-<view class="container">
 
-  <!-- 用户 openid -->
-  <view class="userinfo">
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-    ></button>
-    <view>
-      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
-    </view>
+
+  <van-search placeholder="搜索课程" v-model="value" style=" text-align: center;"/>
+
+  <swiper wx:if="{{ads.length}}" autoplay="ture" indicator-dots="true" circular="true" class="ads">
+        <block wx:for="{{ads}}" wx:for-item="ad" wx:key="index">
+          <swiper-item>
+            <!-- {{ad.title}} -->
+            <image src="{{ad.image}}" data-id="{{index}}" mode="aspectFill"/>
+          
+          </swiper-item>
+          
+        </block> 
+  </swiper>
+
+  <view class="icons">
+    <block wx:for="{{mainPage.icon}}" wx:key="index" >
+
+        <view class="icon">
+          <block wx:if="{{index == 0}}">
+            <navigator  url="../microSpecialty/microSpecialty" > 
+              <image src="{{item.image}}" />
+            </navigator>
+          </block>
+          <block wx:elif="{{index == (mainPage.icon.length-1)}}">
+            <navigator  url="../rankings/rankings" > 
+              <image src="{{item.image}}" />
+            </navigator>
+          </block>
+          <block wx:else>
+            <navigator  url="../categories/categories?id={{item.index}}" > 
+              <image src="{{item.image}}" />
+            </navigator>
+          </block>
+          <text>{{item.title}}</text>
+        </view>  
+      
+    </block >
   </view>
 
 
-  <!-- 上传图片 -->
-  <view class="uploader">
-    <view class="uploader-text" bindtap="doUpload">
-      <text>上传图片</text>
-    </view>
-    <view class="uploader-container" wx:if="{{imgUrl}}">
-      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
-    </view>
-  </view>
+    <!-- <text >{{title[0].text}}</text> -->
+    <box-module title="畅销好课">
+      
+          <view class="courses">
+          
+                <block wx:for="{{mainPage.sellWell}}" wx:key="index" >  
+
+                  <block wx:if="{{item.isBig}}">
+                    <view class="course_big"  >  
+                      <image class="course-image_big " src="{{item.image}}" /> 
+                      <text class="course-title">{{item.title}}</text>
+                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                    </view> 
+                    <view style="display:none"></view>  
+                  </block>
+
+                  <block wx:else>
+                    <view class="course" >  
+                      <image class="course-image " src="{{item.image}}" /> 
+                      <text class="course-title">{{item.title}}</text>
+                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                    </view> 
+                  </block>
+
+                </block>
+  
+          </view>
+
+    </box-module>
+        
+    <box-module title="专题" >
+      <block  wx:for="{{mainPage.special}}" wx:key="index">
+        <special-module image="{{item.image}}" />
+      </block>
+    </box-module>
 
 
-  <!-- 操作数据库 -->
-  <view class="uploader">
-    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
-      <text>前端操作数据库</text>
-    </navigator>
-  </view>
+    <box-module title="办公效率" >
 
-  <!-- 新建云函数 -->
-  <view class="uploader">
-    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
-      <text>快速新建云函数</text>
-    </navigator>
-  </view>
+      <view class="courses">
 
-</view>
+                <block wx:for="{{mainPage.office}}" wx:key="index" >  
+
+                  <block wx:if="{{item.isBig}}">
+                    <view class="course_big"  >  
+                      <image class="course-image_big " src="{{item.image}}" /> 
+                      <text class="course-title">{{item.title}}</text>
+                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                    </view> 
+                    <view style="display:none"></view>  
+                  </block>
+
+                  <block wx:else>
+                    <view class="course" >  
+                      <image class="course-image " src="{{item.image}}" /> 
+                      <text class="course-title">{{item.title}}</text>
+                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                    </view> 
+                  </block>
+
+                </block>
+
+  
+      </view>
+
+    </box-module>
+
+
+    <box-module title="职场发展" >
+      <view class="courses">
+          
+                <block wx:for="{{mainPage.workplace}}" wx:key="index" >  
+
+                  <block wx:if="{{item.isBig}}">
+                    <view class="course_big"  >  
+                      <image class="course-image_big " src="{{item.image}}" /> 
+                      <text class="course-title">{{item.title}}</text>
+                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                    </view> 
+                    <view style="display:none"></view>  
+                  </block>
+
+                  <block wx:else>
+                    <view class="course" >  
+                      <image class="course-image " src="{{item.image}}" /> 
+                      <text class="course-title">{{item.title}}</text>
+                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                    </view> 
+                  </block>
+
+                </block>
+  
+          </view>
+    </box-module>
+
+    <box-module title="语言留学" >
+
+    </box-module>
+
+    <box-module title="金融财会" >
+
+    </box-module>
+
+    <box-module title="职场之外" >
+
+    </box-module>

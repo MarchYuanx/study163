@@ -5,3 +5,8 @@
   align-items: center;
   box-sizing: border-box;
 } 
+.divide {
+  width: 100%;
+  height: 24rpx;
+  background-color: #f2f4f7;
+}

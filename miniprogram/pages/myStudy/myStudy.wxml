@@ -1,14 +1,14 @@
 <!--miniprogram/pages/myStudy/myStudy.wxml-->
 <view class="wrap">
 <view class="titleBar">
-  <view class="status">
+  <ul class="status">
     <li>
       <text class="{{status == '1' ? 'active':''}}" bindtap="showStatus" data-status="1">我的课程</text>
     </li>
     <li>
       <text class="{{status == '2' ? 'active':''}}" bindtap="showStatus" data-status="2">我的微专业</text>
     </li>
-  </view>
+  </ul>
 </view>
 
   
