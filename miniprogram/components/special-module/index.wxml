@@ -1,0 +1,4 @@
+<!--components/special-module/index.wxml-->
+<view class="special">
+ <image src="{{image}}" />
+</view>

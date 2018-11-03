@@ -1,0 +1,6 @@
+/* components/special-module/index.wxss */
+.special image{
+    width: 100%;
+    height: 272rpx;
+    margin-bottom: 16rpx;
+}
