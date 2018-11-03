@@ -1,9 +1,0 @@
-/* miniprogram/pages/account/account.wxss */
-.vip{
-    height: 48rpx;
-    line-height: 48rpx;
-    padding: 0 32rpx;
-    background-color: #ff5151;
-    color:white;
-    font-size: 32rpx;
-}

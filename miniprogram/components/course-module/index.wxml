@@ -1,6 +1,0 @@
-<!--components/course-module/index.wxml-->
-<view class="course" >
-          <image class="course-image " src="{{image}}" mode="widthFix"/>
-          <view class="course-title">{{title}}</view>
-          <view class="course-price">{{price}}</view>
-</view>

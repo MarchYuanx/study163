@@ -1,4 +1,0 @@
-/* miniprogram/pages/courseInfo/courseInfo.wxss */
-.hd_image{
-    width: 100%;
-}
