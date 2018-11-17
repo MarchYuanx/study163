@@ -1,6 +1,22 @@
 <!--miniprogram/pages/account/account.wxml-->
 <van-cell-group>
-  <van-cell title="MarchYuanx" icon="contact" is-link />
+  <!-- <van-cell title="MarchYuanx" icon="contact" is-link /> -->
+  <view class="header">
+    <block wx:if="{{!hasUserInfo}}">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="../../images/unLogin.png" mode="cover"></image>
+      <button class="login" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登录/注册 </button>
+    </block>
+
+    <block wx:else>
+      <image src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="info">
+        <view class="nickname">{{userInfo.nickName}}</view>
+        <view class="cate">正在使用微信账号登录</view>
+      </view>
+
+    </block>
+
+  </view>
   <view class="vip">开通VIP会员</view>
   <van-cell title="我的订单" icon="debit-pay" is-link />
   <van-cell title="我的优惠券" icon="coupon" is-link />

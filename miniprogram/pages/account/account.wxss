@@ -1,4 +1,55 @@
 /* miniprogram/pages/account/account.wxss */
+.header {
+    height: 156rpx;
+    text-align: left;
+    box-sizing: border-box;   
+    background: #fff;
+    padding: 28rpx 0 28rpx  20rpx;
+}
+
+.header image{
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 24rpx;
+    display: inline-block;
+    border-radius:50%; 
+}
+.header .login{
+    display: inline-block;
+    height:60rpx;
+    font-size: 32rpx;
+    color: #333740;
+    position: relative;
+    bottom: 30rpx;
+
+    position: relative;
+}
+
+.header button{
+    height: 50rpx;
+    background-color: #fff;
+    padding-left:0;
+
+}
+  
+.header button::after {
+    border: none;
+}
+
+.header .info{
+    display: inline-block;
+    position: relative;
+    bottom: 16rpx;
+}
+.header .info .nickname{
+    font-size: 32rpx;
+    color: #333333;
+}
+.header .info .cate{
+    font-size: 24rpx;
+    color: #999999;
+}
+
 .vip{
     height: 68rpx;
     line-height: 68rpx;

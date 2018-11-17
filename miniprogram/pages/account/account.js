@@ -1,14 +1,11 @@
-// miniprogram/pages/account/account.js
-
-
+const app = getApp()
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   /**
@@ -24,6 +21,19 @@ Page({
   onReady: function () {
 
   },
+  getUserInfo: function(e) {
+    // console.log(e.detail.userInfo.avatarUrl)
+    // console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+    
+  },
+
+
+
   toCart(){
     wx.navigateTo({
       url: '../cart/cart'
