@@ -1,0 +1,18 @@
+<!--components/courseinfo-module/index.wxml-->
+<view class="divide"></view>
+  <view class="courseInfo-module">
+    <text class="courseInfo-title">课程介绍</text>
+    <text class="courseInfo-txt">{{content}}</text>
+    <text class="courseInfo-txt">{{content.desc}}</text>
+    <block wx:for="{{content.introImg}}" wx:key="index">
+        <image class="introImg" src="{{content.introImg[index]}}" mode="widthFix"/>
+    </block>
+
+     
+    <text class="courseInfo-title">适用人群</text>
+    <text class="courseInfo-txt">{{content.targetPerson}}</text>
+
+
+    <text class="courseInfo-title">讲师</text>
+      <slot />
+  </view>

@@ -1,4 +1,3 @@
-//index.js
 const app = getApp();
 const globalData = [];
 
@@ -10,7 +9,9 @@ Page({
     requestResult: '',
     // sellWell: [],
     // special: [],
+    url:"courseInfo",
     mainPage:{},
+    test:{},
     title:[{
       "text":"畅销好课",
       "index":0
@@ -71,8 +72,10 @@ Page({
            mainPage : res.data       
          })
 
-        console.log("---test---") 
-        console.log(this.data.mainPage)
+      
+
+        // console.log("---index---") 
+        // console.log(this.data.mainPage)
  
       },
       error:(err) => {

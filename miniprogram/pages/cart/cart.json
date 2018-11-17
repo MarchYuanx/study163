@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "van-submit-bar": "../../vant-weapp/submit-bar/index"
+       
+    }
+}

@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "van-cell-group": "../../vant-weapp/cell-group/index",
-        "van-cell": "../../vant-weapp/cell/index"
+        "van-cell": "../../vant-weapp/cell/index",
+        "van-badge": "../../vant-weapp/badge/index"
     }
 }

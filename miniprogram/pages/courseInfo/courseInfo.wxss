@@ -1,4 +1,35 @@
 /* miniprogram/pages/courseInfo/courseInfo.wxss */
-.hd_image{
+page{
+    padding-bottom: 100rpx;
+}
+
+.headImg,.introImg{
     width: 100%;
+}
+
+.pic{
+    margin: 0;
+    padding: 0;
+}
+
+.txt {
+        color: #70788C;
+        display: inline-block;
+        font-size: 28rpx;
+        line-height: 38rpx;
+        padding-bottom: 30rpx;
+        border-bottom: 1px solid #e6eae5;
+        word-break: break-all;
+    
+}
+
+
+.test{
+    font-size: 156rpx;
+}
+
+
+
+.van-button--square {
+border-radius:60rpx;
 }

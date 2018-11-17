@@ -8,9 +8,14 @@ App({
 
     // console.log('应用启动'); 
     
-    this.globalData = {}
+    this.globalData = {
+      cart_courses:[]
+    }
     
-  }
+  },
+  // getCart_courses_count:()=>{
+  //   return globalData.cart_courses.length
+  // }
   
 
   

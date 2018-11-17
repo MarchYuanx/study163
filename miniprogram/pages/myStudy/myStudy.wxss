@@ -1,16 +1,16 @@
 /* miniprogram/pages/myStudy/myStudy.wxss */
-.titleBar{
+/* .titleBar{
     box-sizing: border-box;
     width: 100%;
-    /* display: flex; */
+    
     border-bottom: 1px solid #eee;
-    /* padding: 0 30rpx 10rpx; */
+
     align-items: center;
     background-color: white;
 }
 .titleBar .status{
     display: flex;
-    /* flex: 1; */
+
 }
 
 .titleBar .status li{
@@ -19,7 +19,6 @@
     height: 88rpx;
     line-height: 88rpx;
     text-align: center;
-    /* padding-bottom: 4rpx; */
 }
 
 
@@ -38,7 +37,9 @@
     color:#2CC17B;
     border-bottom: 6rpx solid #2CC17B;
     
-}
+} */
+
+
 
 .none{
     padding-top: 140rpx;

@@ -5,17 +5,13 @@
   <swiper wx:if="{{ads.length}}" autoplay="ture" indicator-dots="true" circular="true" class="ads">
         <block wx:for="{{ads}}" wx:for-item="ad" wx:key="index">
           <swiper-item>
-            <!-- {{ad.title}} -->
-            <image src="{{ad.image}}" data-id="{{index}}" mode="aspectFill"/>
-          
-          </swiper-item>
-          
+            <image src="{{ad.image}}" data-id="{{index}}" mode="aspectFill"/>       
+          </swiper-item>       
         </block> 
   </swiper>
 
   <view class="icons">
     <block wx:for="{{mainPage.icon}}" wx:key="index" >
-
         <view class="icon">
           <block wx:if="{{index == 0}}">
             <navigator  url="../microSpecialty/microSpecialty" > 
@@ -33,33 +29,36 @@
             </navigator>
           </block>
           <text>{{item.title}}</text>
-        </view>  
-      
+        </view>       
     </block >
   </view>
 
 
     <!-- <text >{{title[0].text}}</text> -->
     <box-module title="畅销好课">
-      
+          
           <view class="courses">
           
                 <block wx:for="{{mainPage.sellWell}}" wx:key="index" >  
 
                   <block wx:if="{{item.isBig}}">
-                    <view class="course_big"  >  
-                      <image class="course-image_big " src="{{item.image}}" /> 
-                      <text class="course-title">{{item.title}}</text>
-                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                    <view class="course_big"  >
+                      <navigator  url="../{{url}}/{{url}}?id={{item.id}}" >     
+                        <image class="course-image_big " src="{{item.image}}" /> 
+                        <text class="course-title">{{item.title}}</text>
+                        <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                      </navigator>   
                     </view> 
                     <view style="display:none"></view>  
                   </block>
 
                   <block wx:else>
-                    <view class="course" >  
-                      <image class="course-image " src="{{item.image}}" /> 
-                      <text class="course-title">{{item.title}}</text>
-                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                    <view class="course" > 
+                      <navigator  url="../{{url}}/{{url}}?id={{item.id}}" >      
+                        <image class="course-image " src="{{item.image}}" /> 
+                        <text class="course-title">{{item.title}}</text>
+                        <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                      </navigator>   
                     </view> 
                   </block>
 
@@ -81,24 +80,33 @@
       <view class="courses">
 
                 <block wx:for="{{mainPage.office}}" wx:key="index" >  
+                   
+                    <block wx:if="{{item.isBig}}">
+                   
+                        <view class="course_big"  >
+                          <navigator  url="../courseInfo/courseInfo" >   
+                            <image class="course-image_big " src="{{item.image}}" /> 
+                            <text class="course-title">{{item.title}}</text>
+                            <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                          </navigator> 
+                        </view> 
+          
+                      <view style="display:none"></view>  
+                      
+                    </block>
 
-                  <block wx:if="{{item.isBig}}">
-                    <view class="course_big"  >  
-                      <image class="course-image_big " src="{{item.image}}" /> 
-                      <text class="course-title">{{item.title}}</text>
-                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
-                    </view> 
-                    <view style="display:none"></view>  
-                  </block>
-
-                  <block wx:else>
-                    <view class="course" >  
-                      <image class="course-image " src="{{item.image}}" /> 
-                      <text class="course-title">{{item.title}}</text>
-                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
-                    </view> 
-                  </block>
-
+                    <block wx:else>
+                       
+                        <view class="course" >  
+                          <navigator  url="../courseInfo/courseInfo" > 
+                            <image class="course-image " src="{{item.image}}" /> 
+                            <text class="course-title">{{item.title}}</text>
+                            <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+                          </navigator >
+                        </view> 
+                        
+                    </block>
+                   
                 </block>
 
   

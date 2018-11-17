@@ -1,7 +1,7 @@
 /* miniprogram/pages/account/account.wxss */
 .vip{
-    height: 48rpx;
-    line-height: 48rpx;
+    height: 68rpx;
+    line-height: 68rpx;
     padding: 0 32rpx;
     background-color: #ff5151;
     color:white;

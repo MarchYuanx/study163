@@ -1,30 +1,90 @@
 <!--miniprogram/pages/courseInfo/courseInfo.wxml-->
-<view>
-    <image src="https://edu-image.nosdn.127.net/43e27d1e-021c-49e5-a7da-bae92cefb786.jpg?imageView&amp;quality=100&amp;crop=0_0_879_495&amp;thumbnail=450y250"
-    class="hd_image" mode="widthFix"></image>
+<page>
+<view class="pic">
+    <image src="{{content.headImg}}"
+    class="headImg" mode="widthFix"></image>
 </view>
 
 <view class="titleBar">
   <ul class="status">
     <li>
-      <text class="{{status == '1' ? 'active':''}}" bindtap="showStatus" data-status="1">简介</text>
+      <text class="{{status == '1' ? 'active':''}} black" bindtap="showStatus" data-status="1">简介</text>
     </li>
     <li>
-      <text class="{{status == '2' ? 'active':''}}" bindtap="showStatus" data-status="2">目录</text>
+      <text class="{{status == '2' ? 'active':''}} black" bindtap="showStatus" data-status="2">目录</text>
     </li>
     <li>
-      <text class="{{status == '3' ? 'active':''}}" bindtap="showStatus" data-status="2">评价</text>
+      <text class="{{status == '3' ? 'active':''}} black" bindtap="showStatus" data-status="3">评价</text>
     </li>
   </ul>
 </view>
 
-<van-cell-group>
-  <van-cell title="test" />
-  <van-cell title="test" />
-</van-cell-group>
+
+<block wx:if="{{status == '1'}}">
+
+  <van-cell-group>
+    <van-cell class="test" title="{{content.title}}" />
+    <van-cell title="￥{{content.price}}" />
+
+
+    <!-- <courseInfo-module content="{{content}}" >
+    </courseInfo-module> -->
+
+    <box-module title="课程介绍" >
+      <text class="txt">{{content.desc}}</text>
+
+      <block wx:for="{{content.introImg}}" wx:key="index">
+        <image class="introImg" src="{{content.introImg[index]}}" mode="widthFix"/>
+      </block>
+
+
+      适用人群
+     <text class="txt">{{content.targetPerson}}</text>
+    </box-module>
+    
+  </van-cell-group>
+
+</block>
+
+<block wx:elif="{{status == '2'}}">
+    <van-cell title="2" />
+</block>
+
+<block wx:else>
+    <van-cell title="全部评价" />
+</block>
+
+
+<!-- <block wx:else>
+    <van-cell title="3" />
+</block> -->
 
 
 
-<box-module title="课程介绍" >
 
-</box-module>
+
+
+<!-- <van-goods-action>
+  <van-goods-action-mini-btn icon="cart" text="购物车" info="5" />
+  <van-goods-action-big-btn text="加入购物车" />
+</van-goods-action> -->
+
+  <van-goods-action>
+    <block wx:if="{{content.price>0}}">
+      <van-goods-action-icon
+        data-id="{{content.id}}"
+        icon="cart"
+        text="加入购物车 "
+        bind:click="onClickIcon"
+      />
+    </block>
+    <van-goods-action-button class="btn"
+      size="mini   "
+      text="加入学习"
+      type="warning "
+      bind:click="onClickButton"
+    />
+
+  </van-goods-action>
+
+</page>

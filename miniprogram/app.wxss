@@ -10,3 +10,50 @@
   height: 24rpx;
   background-color: #f2f4f7;
 }
+
+
+.titleBar{
+  box-sizing: border-box;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  background-color: white;
+}
+.titleBar .status{
+  display: flex;
+
+}
+
+.titleBar .status li{
+  flex: 1;
+  display: inline-block;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+}
+
+
+.titleBar .status li text{
+  color: #99a4bf;
+  display: inline-block;
+  height: 100%;
+  font-size: 12pt;   
+  text-align: center;
+  padding: 0 16rpx;
+  box-sizing: border-box;
+}
+
+.titleBar .status li text.black{
+  color: #333;
+  padding: 0 40rpx;
+
+}
+
+
+
+.titleBar .status li text.active{
+  
+  color:#2CC17B;
+  border-bottom: 6rpx solid #2CC17B;
+  
+}

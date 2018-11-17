@@ -16,7 +16,7 @@
     font-size: 34rpx;
     font-weight: bold;
     color: #3c4a55;
-    /* width: 60%; */
+    
 }
 .box-module .box-more{
     
@@ -43,4 +43,3 @@
 }
 
 /* --- */
-
