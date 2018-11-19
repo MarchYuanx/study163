@@ -97,7 +97,9 @@ width: 100%;
     color: #99A4BF;
 }
 
-
+.all{
+    padding-bottom:96rpx ;
+}
 
 .org-divide {
     position: relative;
@@ -127,7 +129,7 @@ width: 100%;
 .total-price{
     height: 96rpx;
     width: 100%;
-    /* background-color: #ff5151; */
+    background-color: #fff;
     padding-left: 20rpx;
     position: fixed;
     bottom: 0;

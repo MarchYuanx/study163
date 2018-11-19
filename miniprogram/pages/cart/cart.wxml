@@ -3,59 +3,9 @@
        
         <text class=".total-count">共{{courses.length}}门课程</text>
         <text ></text>
-    <!--顶部显示购物车课程总数 -->
-    <!-- 
-    <view class="org">
-        <view class="org-head">
-            <image class="check-img check-all" src="../../images/check.png" />
-            <text >{{ownername}}</text>
-        </view>
-        <view class="courses">
-            <view class="course">
-                
-                    <image class="course-check check-img" src="../../images/check.png"/>
-                
-                
-                    <image class="course-img" src="{{image}}" />
-                
-                <view class="course-ctx">
-                    <view class="ctx-title">{{title}}</view>
-                    <view class="ctx-time">{{time}}</view>
-                    <view class="ctx-price">￥{{price}}</view>
-                </view>
-                <view class="course-del">
-                    删除
-                </view>
-            </view>
+  
 
-            <view class="course">
-                
-                    <image class="check-img course-check" src="../../images/check.png"/>
-                
-                
-                    <image class="course-img course-pic" src="{{image}}" />
-                
-                <view class="course-ctx">
-                    <view class="ctx-title">萨顶顶顶顶顶顶顶sdd是哒少时诵诗书</view>
-                    <view class="ctx-time">{{time}}</view>
-                    <view class="ctx-price">￥{{price}}</view>
-                </view>
-                
-                <view class="course-del">
-                    删除
-                </view>
-            </view>
-
-        
-        
-        </view>
-        <view class="org-divide"></view>
-        <view class="org-count">
-            该机构小计: <text class="org-count-price">￥{{0}}</text>
-        </view>
-        <view class="org-sep"></view>
-    </view> -->
-        <scroll-view >
+        <view class="all">
 
         <block wx:for="{{courses}}" wx:key="index">
             <view class="org">
@@ -108,7 +58,7 @@
             </view>
         </block>
 
-        </scroll-view>
+        </view>
 
         <view class="total-price">
             
@@ -123,21 +73,20 @@
                         <view class="price">￥{{totalPrice}}.00</view>    
                     </view>
                     <view class="tip2">若有优惠, 将在订单结算页面减扣</view>
-                </view>                
-                <view class="pay-btn {{totalPrice == 0 ? '':'active'}}">去结算</view>
+                </view>
+
+                <block wx:if="{{totalPrice > 0}}">
+                    <view class="pay-btn active" bindtap="confirm">去结算</view>
+                </block>
+                <block wx:else>                    
+                    <view class="pay-btn">去结算</view>
+                </block>
+
+                
         </view>
 
 <!--课程机构卡片 -->
-
 </block>
-
-
-
-
-
-
-
-
 
 <!--购物车里没有课程时  -->
 <block wx:else>

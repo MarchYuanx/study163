@@ -13,8 +13,9 @@ Page({
    */
   data: {
     coursesId:[],
-    courses:[],
+    courses:[],  
     totalPrice:0,
+    selectedCourses:[],
     selectAllStatus: false
   },
 
@@ -23,7 +24,7 @@ Page({
    */
   onLoad: function (options) {
 
-    let cart_coursesId = app.globalData.cart_courses;
+    let cart_coursesId = app.globalData.cart_coursesId;
     this.data.coursesId = cart_coursesId;
 
     console.log('coursesId ',this.data.coursesId) 
@@ -89,7 +90,15 @@ Page({
     coursesId = coursesId.filter((courseId,i)=>{
       return index!=i;
     })
+
+    app.globalData.cart_coursesId = app.globalData.cart_coursesId.filter((courseId,i)=>{
+      return index!=i;
+    })
     
+    console.log('coursesId',coursesId);
+    console.log('app.globalData.cart_coursesId',app.globalData.cart_coursesId);
+
+
     this.setData({
       courses,
       coursesId
@@ -115,5 +124,10 @@ Page({
 
     this.getTotalPrice();
   },
+  confirm:function(){
+    wx.navigateTo({
+      url: '../confirm/confirm'
+    })
+  }
   
 })
