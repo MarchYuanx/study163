@@ -1,0 +1,148 @@
+/* miniprogram/pages/confirm/confirm.wxss */
+.toptips{
+  padding: 20rpx;
+  font-size: 0;
+}
+.nickname,.tel{
+  line-height: 15px;
+  font-size: 28rpx;
+  color: #333740;
+  display: inline-block;
+  width: 100%;
+}
+.tel{
+  padding-top: 20rpx; 
+}
+
+.seg{
+  height: 10px;
+  overflow: hidden;
+  display: block;
+  opacity: 0.2;
+  border-bottom: #333740 solid 1px;
+  margin-bottom: 10rpx; 
+}
+
+.foot{
+  color: #000;
+    font-size: 12px;
+    line-height: 1.6rem;
+}
+.orders{
+  padding-bottom: 120rpx;
+}
+
+.order-body{
+  padding: 36rpx 20rpx 0;
+  font-size: 24rpx;
+}
+
+.order-title{
+  color: #3c4a55;
+  display: inline-block;
+  margin-bottom: 16rpx;
+}
+.order-title.name{
+  color: #333;
+}
+
+.order-info image{
+  display: inline-block;
+  border-radius: 3px;
+  width: 240rpx;
+  height: 150rpx;
+  margin:0 20rpx 10rpx 0;
+   
+}
+
+.order-info-ctx{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.ctx-title{
+
+  color: #000000;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.ctx-time{
+  line-height: 28px;
+  
+  color: #666666;
+}
+
+.ctx-price{
+  color: #666666;
+}
+
+.discount{
+  color: #D80000;
+}
+
+.count{
+  color: #3c4a55;
+  float: right;
+}
+
+.order-count{
+  box-sizing: border-box;
+  background: #f7f9fc;
+  min-height: 60px;
+  padding:0 10px;
+  margin-top: 60rpx;
+}
+
+.order-count-txt{
+  height: 120rpx;
+  line-height: 120rpx;
+  float: right;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.submitArea{
+  position: fixed;
+  height: 54px;
+  width: 100%;
+  z-index: 200;
+  bottom: 0;
+  background-color: #f7f9fc;
+  filter: alpha(opacity=97);
+  -khtml-opacity: 0.97;
+  -moz-opacity: 0.97;
+  opacity: 0.97;
+  /* padding: 0 20rpx 0 20rpx; */
+}
+
+.realPay{
+  display: inline-block;
+  font-weight: normal;
+  color: #666666;
+  font-size: 14px;
+  line-height: 54px;
+  padding: 0 20rpx ;
+}
+
+.realPay-price{
+  display: inline-block;
+  color: #ff4400;
+  opacity: 0.97;
+}
+
+.submit{
+  float: right;
+  width: 164px;
+  height: 39px;
+  border-radius: 20px;
+  margin: 8px 8px 0 0;
+  line-height: 39px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  background-color: #FF632A;
+  opacity: 0.97;
+}

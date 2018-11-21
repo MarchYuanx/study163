@@ -1,0 +1,42 @@
+<!--miniprogram/pages/confirm/confirm.wxml-->
+<view class="toptips">
+  <view class="nickname">购买账号：{{userInfo.nickName}}</view>
+  <view class="tel">手机号：未绑定</view>
+  <view class="seg"></view>
+  <view class="foot">购买后不支持退款、转让,请确认开课时间或有效期后再提交订单</view>
+</view>
+
+<view class="orders">
+  <view class="order" wx:for="{{orders}}" wx:for-item="order" wx:key="index">
+    <view class="divide"></view>
+    <view class="order-body">
+      
+      <view class="order-title">机构 <view class="order-title name">{{order.ownername}}</view></view>
+      <view class="order-info">
+        <image src="{{order.image}}" />
+
+        <view class="order-info-ctx">
+            <view class="ctx-title">{{order.title}}</view>
+            <view class="ctx-time">{{order.time}}</view>
+            <view class="ctx-price">￥{{order.price}}</view>
+        </view>
+        <block wx:if="{{order.discount}}">
+          <view class="discount">限时优惠省{{order.discount}}.00元</view>
+        </block>
+        <view class="count">小计：￥{{order.price-order.discount}}.00</view>
+      </view>
+      
+    
+    </view>
+    <view class="order-count">
+        <view class="order-count-txt">小计：￥{{order.price-order.discount}}.00</view>
+    </view>
+  </view>
+  <van-cell title="优惠券" is-link value="去兑换" />
+</view>
+
+
+<view class="submitArea">
+  <view class="realPay">实付金额：<view class="realPay-price">￥{{realPay}}.00</view></view>
+  <view class="submit" bindtap="submit">提交订单</view>
+</view>
