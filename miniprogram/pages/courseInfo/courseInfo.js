@@ -40,27 +40,62 @@ Page({
   onLoad: function (options) {
     console.log(options);
 
-    
+    wx.showLoading({
+      title: '数据加载中...'
+    });
 
     this.setData({
       cart_coursesId: app.globalData.cart_coursesId,
       my_courses: app.globalData.my_courses,
     })
 
-    course_info.where({id: options.id}).get({
-      success: res => {
-        wx.setNavigationBarTitle({
-          title: res.data[0].title
-        })
-        this.setData({
-          content: res.data[0],
-          viewDesc: viewContent(res.data[0].desc),
-          viewTarget: viewContent(res.data[0].targetPerson)
-        })
+/*  start */ 
+
+    // course_info.where({id: options.id}).get({
+    //   success: res => {
+        // wx.setNavigationBarTitle({
+        //   title: res.data[0].title
+        // })
+    //     this.setData({
+    //       content: res.data[0],
+    //       viewDesc: viewContent(res.data[0].desc),
+    //       viewTarget: viewContent(res.data[0].targetPerson)
+    //     })
+    //   }
+
+    // })
+    
+
+/*  cloud */
+
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getCourseInfo',
+      // 传给云函数的参数
+      data: {
+        id: options.id
       }
     })
-    
-    
+    .then(res => {
+      console.log(res.result.data[0]) // 3
+
+        wx.setNavigationBarTitle({
+        title: res.result.data[0].title
+      })
+
+      this.setData({
+        content: res.result.data[0],
+        viewDesc: viewContent(res.result.data[0].desc),
+        viewTarget: viewContent(res.result.data[0].targetPerson)
+      })
+
+      wx.hideLoading()
+
+    })
+    .catch(console.error)
+  
+/*  end */
+
 
 
     for(const my_course of app.globalData.my_courses){
