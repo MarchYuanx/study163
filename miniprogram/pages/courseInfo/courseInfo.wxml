@@ -26,28 +26,58 @@
     <van-cell class="test" title="{{content.title}}" />
     <van-cell title="￥{{content.price}}" />
 
+      <view class="divide"></view>
+      <view class="box-module">
+        <text class="box-title">课程介绍</text>
 
-    <!-- <courseInfo-module content="{{content}}" >
-    </courseInfo-module> -->
+        <view class="txt">
+        <block wx:for="{{viewDesc}}" wx:key="index">
+          <view class="txt-item">{{viewDesc[index]}}</view>
+        </block>
+        </view>
 
-    <box-module title="课程介绍" >
-      <text class="txt">{{content.desc}}</text>
-
-      <block wx:for="{{content.introImg}}" wx:key="index">
-        <image class="introImg" src="{{content.introImg[index]}}" mode="widthFix"/>
-      </block>
+        <block wx:for="{{content.introImg}}" wx:key="index">
+          <image class="introImg" src="{{content.introImg[index]}}" mode="widthFix"/>
+        </block>
 
 
-      适用人群
-     <text class="txt">{{content.targetPerson}}</text>
-    </box-module>
+        <text class="box-title">适用人群</text>
+        <view class="txt">
+        <block wx:for="{{viewTarget}}" wx:key="index">
+          <view class="txt-item">{{viewTarget[index]}}</view>
+        </block>
+        </view>
+
+        <text class="box-title">讲师</text>
+        <view class="teacher">
+          <image class="teacherImg" src="{{content.teacher.avatarURL}}" />
+          <view class="teacherName" >{{content.teacher.name}}</view>
+          <view class="teacherIntro">{{content.teacher.intro}}</view>
+        </view>
+        <block wx:if="{{content.isExpert}}">
+          <image class="teacherImg" src="{{expert.avatarURL}}" />
+          <view class="teacherName" >{{expert.name}}</view>
+          <view class="teacherIntro">{{expert.intro}}</view>
+        </block>
+      </view>
+
+
+
+
+
+
+
+<!-- end -->
+
+
+
     
   </van-cell-group>
 
 </block>
 
 <block wx:elif="{{status == '2'}}">
-    <van-cell title="2" />
+    <van-cell title="目录" />
 </block>
 
 <block wx:else>
@@ -55,20 +85,13 @@
 </block>
 
 
-<!-- <block wx:else>
-    <van-cell title="3" />
-</block> -->
+<block wx:if="{{isPaid}}">
+  <view class="foot">打开网易云课堂APP学习 支持倍速播放<view class="arrow"></view>
+  </view>
+</block>
 
 
-
-
-
-
-<!-- <van-goods-action>
-  <van-goods-action-mini-btn icon="cart" text="购物车" info="5" />
-  <van-goods-action-big-btn text="加入购物车" />
-</van-goods-action> -->
-
+<block wx:else>
   <van-goods-action>
     <block wx:if="{{content.price>0}}">
       <van-goods-action-icon
@@ -84,7 +107,7 @@
       type="warning "
       bind:click="onClickButton"
     />
-
   </van-goods-action>
+</block>
 
 </page>

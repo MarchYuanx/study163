@@ -13,7 +13,7 @@
     margin-bottom: 0.6rem;
     display: inline-block;
     line-height: 42rpx;
-    font-size: 34rpx;
+    font-size: 32rpx;
     font-weight: bold;
     color: #3c4a55;
     
@@ -27,6 +27,7 @@
     display: block;
     float: right;
     
+    margin-top: 8rpx; 
     padding-right: 24rpx;
     background-image: url(https://edu-image.nosdn.127.net/018482ce-2bfd-435a-ad30-907d6c225fa2.png?imageView&quality=100);
     background-position: top right;

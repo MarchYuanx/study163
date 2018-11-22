@@ -2,7 +2,7 @@
     "usingComponents": {
         "box-module":"../../components/box-module/index",
 
-        "courseInfo-module":"../../components/courseInfo-module/index",
+
         "van-cell-group":"../../vant-weapp/cell-group/index",
         "van-cell":"../../vant-weapp/cell/index",
         "van-tag":"../../vant-weapp/tag/index",

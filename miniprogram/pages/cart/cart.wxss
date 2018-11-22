@@ -1,3 +1,8 @@
+navigator{
+    display: inline-block;
+    position: fixed;
+}
+
 .total-count{
     padding-left: 20rpx;
     height: 68rpx;
@@ -35,22 +40,25 @@ width: 100%;
 .course-check,.course-img,.course-ctx,.course-del{
     display: inline-block;
     vertical-align: top;
+    font-size: 0;
 }
-
-
 
 
 
 .check-img{
     width: 30rpx;
     height: 30rpx;
-   
+
 }
 
-.check-all{
+.check-img.hd{
     position: relative;
     top: 8rpx;
 }
+.check-img.bd{
+    vertical-align: top; 
+}
+
 
 .course-img{
     width: 194rpx;
@@ -172,6 +180,8 @@ width: 100%;
 .pay-btn.active{
     background: #FF632A; 
 }
+
+
 /* ---empty--- */
 
 

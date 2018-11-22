@@ -15,7 +15,7 @@ Page({
     coursesId:[],
     courses:[],  
     totalPrice:0,
-    selectedCourses:[],
+    selectedId:[],
     selectAllStatus: false
   },
 
@@ -23,6 +23,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: "我的购物车"
+    })
 
     let cart_coursesId = app.globalData.cart_coursesId;
     this.data.coursesId = cart_coursesId;
@@ -57,16 +60,20 @@ Page({
   getTotalPrice: function(){
     let courses = this.data.courses;
     let total = 0;
+    let selectedId = [];
     for(let i=0;i<courses.length;i++){
       if(courses[i].isSelected){
         total += courses[i].price;
+        selectedId.push(courses[i].id)
       }      
     }
 
     this.setData({
-      totalPrice:total
+      totalPrice:total,
+      selectedId
     })
     console.log('[total]',total);
+    console.log('[selected]',selectedId);
     return total;
   },
   selectedList:function(e){
@@ -125,9 +132,20 @@ Page({
     this.getTotalPrice();
   },
   confirm:function(){
-    wx.navigateTo({
-      url: '../confirm/confirm'
+   
+
+    this.deleteCart();
+
+  },
+
+  deleteCart:function(){
+    let selectedId = this.data.selectedId;
+    let coursesId = this.data.coursesId;
+
+    app.globalData.cart_coursesId = app.globalData.cart_coursesId.filter(function (id) {
+      return selectedId.indexOf(id) < 0;
     })
-  }
+  },
+  
   
 })

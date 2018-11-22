@@ -15,29 +15,57 @@
 
   <scroll-view class="lists" scroll-y>
     
-    
-
-      <view class="none" wx:if="{{curLists.length<1}}">
-        <image src="../../images/newBlank.png" 
-        alt="空结果" mode="widthFix"/>
         <block wx:if="{{status == '1'}}">
-          <text class="nodata">未开始学习哦~</text>
-          <button type="primary" class="none-btn" bindtap="swichTab">去发现值得学习的课程</button>
+
+          <view class="none" wx:if="{{my_courses.length<1}}">
+            <image src="../../images/newBlank.png" alt="空结果" mode="widthFix"/>
+            <text class="nodata">未开始学习哦~</text>
+            <button type="primary" class="none-btn" bindtap="swichTab">去发现值得学习的课程</button>
+          </view>
+
+          <view wx:else>
+            <view class="mycourses" wx:for="{{my_courses}}" wx:key="index">
+              <view class="mycourse">
+                <image src="{{item.image}}" />
+                <view class="info">
+                  <view class="title">{{item.title}}</view>
+                  <navigator  url="../courseInfo/courseInfo?id={{item.id}}" >
+                    <view class="study" >开始学习</view>
+                  </navigator>
+                </view>            
+             </view>
+
+
+            </view>
+            <view class="bottom">已经到达底部了亲</view>
+          </view>
+
+          
         </block>
+
         <block wx:else>
-          <text class="nodata">未学习微专业哦~</text>
-          <button type="primary" class="none-btn" bindtap="swichTab">去发现精彩微专业</button>
+
+          <view class="none" wx:if="{{my_microSpecialty.length<1}}">
+            <image src="../../images/newBlank.png" alt="空结果" mode="widthFix"/>
+            <text class="nodata">未学习微专业哦~</text>
+            <button type="primary" class="none-btn" bindtap="swichTab">去发现精彩微专业</button>
+          </view>
+
+          
         </block>
-      </view>
+
+
+
+      
 
 
 
 
-      <view class="item" wx:key="index" wx:for="{{curLists}}" >
+      <!-- <view class="item" wx:key="index" wx:for="{{my_coursesId}}" >
         <view class="content">      
           <text class="title">{{item.text}}</text>
         </view>  
-      </view>
+      </view> -->
 
   </scroll-view>
 </view>

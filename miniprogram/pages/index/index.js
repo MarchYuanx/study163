@@ -1,5 +1,4 @@
 const app = getApp();
-const globalData = [];
 
 Page({
   data: {
@@ -9,7 +8,6 @@ Page({
     requestResult: '',
     // sellWell: [],
     // special: [],
-    url:"courseInfo",
     mainPage:{},
     test:{},
     title:[{
@@ -65,23 +63,23 @@ Page({
     wx.request({
       url: 'https://www.easy-mock.com/mock/5bda9d1a58caf84108172bab/study163/mainPage',
       success:(res) => {
-        // console.log("---res.data---")
-        // console.log(res.data)
+        console.log("---easy-mock.data---")
+        console.log(res.data)
 
          this.setData({
-           mainPage : res.data       
+           mainPage : res.data
          })
 
-      
 
-        // console.log("---index---") 
-        // console.log(this.data.mainPage)
  
       },
       error:(err) => {
         console.log(err);
       }
     })
+
+  },
+  onShow: function () {
 
   }
   

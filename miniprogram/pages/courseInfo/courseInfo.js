@@ -3,8 +3,9 @@ wx.cloud.init()
 const db = wx.cloud.database();
 const course_info = db.collection('course_info');
 
-
 const app = getApp()
+
+import { viewContent } from '../../utils/viewContent.js';
 
 Page({
 
@@ -14,9 +15,18 @@ Page({
   data: {
     status: 1,
     content:{},
-    title:"",
-    cart_courses: app.globalData.cart_courses
-    
+    viewDesc:[],
+    viewTarget:[],
+    // title:"",
+    cart_coursesId:[],
+    my_courses:[],
+    isPaid :false,
+    expert:{
+      "avatarURL": "http://edu-image.nosdn.127.net/CFD2999B76C502CF3B0CAEAD4375174A.jpg?imageView&amp;thumbnail=120y120&amp;quality=100" ,
+      "intro": "行家是云课堂优秀讲师推荐栏目。在这个栏目中，我们将优选课程内容优质、教学水平优秀、对学生负责的优秀讲师和讲师团队，为用户学习高质量内容提供建议。",
+      "name": "云课堂行家"
+
+    }
   },
   showStatus: function(e){
     let status = e.currentTarget.dataset.status;
@@ -28,36 +38,49 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('---options---')
-    console.log('options',options)
-    console.log('cart_courses',this.data.cart_courses)
+    console.log(options);
 
-    // course_info.get({
-    //   success: function(res) {
-    //     // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-    //     console.log(res.data)
-    //   }
-    // })
+    
+
+    this.setData({
+      cart_coursesId: app.globalData.cart_coursesId,
+      my_courses: app.globalData.my_courses,
+    })
 
     course_info.where({id: options.id}).get({
       success: res => {
-        // console.log("---course_info---")
-        // console.log(res.data[0])
+        wx.setNavigationBarTitle({
+          title: res.data[0].title
+        })
         this.setData({
-          content: res.data[0]
-
+          content: res.data[0],
+          viewDesc: viewContent(res.data[0].desc),
+          viewTarget: viewContent(res.data[0].targetPerson)
         })
       }
     })
     
+    
+
+
+    for(const my_course of app.globalData.my_courses){
+      if(options.id === my_course.id){
+        let isPaid = true;
+        this.setData({
+          isPaid
+        })
+        return ;
+      }
+    }  
   },
 
   onClickIcon: function(e){
     const id = e.currentTarget.dataset.id;
-    const cart_courses = this.data.cart_courses;
+    const cart_coursesId = this.data.cart_coursesId;
 
-    for(const cart_course of cart_courses){
-      if(id === cart_course){
+    
+    for(const cart_courseId of cart_coursesId){
+      if(id === cart_courseId){
         wx.showToast({
           icon:"none",
           title:"已添加"
@@ -66,11 +89,9 @@ Page({
       }
     }
     
-    this.data.cart_courses.push(id);
-    app.globalData.cart_courses.push(id);
+    app.globalData.cart_coursesId.push(id);
 
-
-    console.log(app.globalData)
+    console.log('[app.globalData.cart_coursesId]',app.globalData.cart_coursesId)
    
 
     wx.showToast({
@@ -92,22 +113,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+   
   }
+
 
   
 })

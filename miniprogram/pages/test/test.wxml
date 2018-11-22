@@ -1,2 +1,6 @@
 <!--miniprogram/pages/test/test.wxml-->
-<text>{{content}}</text>
+
+<view class="text">
+  <view class="item" wx:for="{{yuanx_text}}" wx:key="index">{{yuanx_text[index]}}</view>
+
+</view>

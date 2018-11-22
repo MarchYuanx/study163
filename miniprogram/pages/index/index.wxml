@@ -35,15 +35,14 @@
 
 
     <!-- <text >{{title[0].text}}</text> -->
-    <box-module title="畅销好课">
+    <box-module title="{{mainPage.sellWell.title}}">
           
-          <view class="courses">
-          
-                <block wx:for="{{mainPage.sellWell}}" wx:key="index" >  
+          <view class="courses">          
+                <block wx:for="{{mainPage.sellWell.content}}" wx:key="index" >  
 
                   <block wx:if="{{item.isBig}}">
                     <view class="course_big"  >
-                      <navigator  url="../{{url}}/{{url}}?id={{item.id}}" >     
+                      <navigator  url="../courseInfo/courseInfo?id={{item.id}}" >     
                         <image class="course-image_big " src="{{item.image}}" /> 
                         <text class="course-title">{{item.title}}</text>
                         <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
@@ -54,7 +53,7 @@
 
                   <block wx:else>
                     <view class="course" > 
-                      <navigator  url="../{{url}}/{{url}}?id={{item.id}}" >      
+                      <navigator  url="../courseInfo/courseInfo?id={{item.id}}" >      
                         <image class="course-image " src="{{item.image}}" /> 
                         <text class="course-title">{{item.title}}</text>
                         <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
@@ -63,7 +62,6 @@
                   </block>
 
                 </block>
-  
           </view>
 
     </box-module>

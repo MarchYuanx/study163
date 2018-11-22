@@ -11,10 +11,10 @@
             <view class="org">
                 <view class="org-head">
                     <block wx:if="{{courses[index].isSelected}}">
-                        <image class="check-img check-all" data-index="{{index}}" src="../../images/checked.png" bindtap="selectedList"/>
+                        <image class="check-img hd" data-index="{{index}}" src="../../images/checked.png" bindtap="selectedList"/>
                     </block>
                     <block wx:else>
-                        <image class="check-img check-all" data-index="{{index}}" src="../../images/check.png" bindtap="selectedList"/>
+                        <image class="check-img hd" data-index="{{index}}" src="../../images/check.png" bindtap="selectedList"/>
                     </block>
                     <text >{{courses[index].ownername}}</text>
                 </view>
@@ -22,10 +22,10 @@
                     <view class="course">
                         <!-- <view class="course-check"> -->
                         <block wx:if="{{courses[index].isSelected}}">
-                            <image class="check-img check-all" data-index="{{index}}" src="../../images/checked.png" bindtap="selectedList"/>
+                            <image class="check-img bd" data-index="{{index}}" src="../../images/checked.png" bindtap="selectedList"/>
                         </block>
                         <block wx:else>
-                            <image class="check-img check-all" data-index="{{index}}" src="../../images/check.png" bindtap="selectedList"/>
+                            <image class="check-img bd" data-index="{{index}}" src="../../images/check.png" bindtap="selectedList"/>
                         </block>
                     
                     
@@ -63,10 +63,10 @@
         <view class="total-price">
             
                 <block wx:if="{{selectAllStatus}}">
-                    <image class="check-img check-all" src="../../images/checked.png" bindtap="selectAll"/>
+                    <image class="check-img " src="../../images/checked.png" bindtap="selectAll"/>
                 </block>
                 <block wx:else>
-                    <image class="check-img check-all" src="../../images/check.png" bindtap="selectAll"/>
+                    <image class="check-img " src="../../images/check.png" bindtap="selectAll"/>
                 </block>
                 <view class="tips">
                     <view class="tip1">合计:
@@ -76,7 +76,9 @@
                 </view>
 
                 <block wx:if="{{totalPrice > 0}}">
-                    <view class="pay-btn active" bindtap="confirm">去结算</view>
+                    <navigator  url="../confirm/confirm?ids={{selectedId}}">   
+                        <view class="pay-btn active" bindtap="confirm">去结算</view>
+                    </navigator>
                 </block>
                 <block wx:else>                    
                     <view class="pay-btn">去结算</view>

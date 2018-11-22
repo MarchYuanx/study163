@@ -1,1 +1,12 @@
 /* miniprogram/pages/test/test.wxss */
+.text{
+  padding: 24rpx;
+  font-size: 14px;
+  line-height: 19px;
+  color: #70788C
+}
+
+.item{
+  width: 100%;
+  min-height: 38rpx;
+}
