@@ -2,9 +2,8 @@
 <block wx:if="{{courses.length>0}}">
        
         <text class=".total-count">共{{courses.length}}门课程</text>
-        <text ></text>
+        
   
-
         <view class="all">
 
         <block wx:for="{{courses}}" wx:key="index">
@@ -40,9 +39,7 @@
                             删除
                         </view>
                     </view>
-
-                    
-                
+               
                 
                 </view>
                 <view class="org-divide"></view>

@@ -116,3 +116,30 @@ border-radius:60rpx;
     position: relative;
     display: inline-block;
 }
+
+
+.tip{
+    padding: 26rpx 4% ; 
+    font-size: 36rpx;
+    line-height: 52rpx;  
+    border-bottom: 1px solid #e6eaf2;
+}
+
+.tip-title{   
+    color: #3C4A55;  
+}
+
+.tip-price{
+    color: #151515;
+}
+
+.tip-stars .star{
+    color: #2CC17B;
+    margin-right: 8rpx; 
+}
+.star-txt{
+    font-size: 26rpx;
+    line-height: 48rpx;
+    color: #70788C;
+    margin-left: 6rpx; 
+}

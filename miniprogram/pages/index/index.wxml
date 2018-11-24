@@ -34,7 +34,6 @@
   </view>
 
 
-    <!-- <text >{{title[0].text}}</text> -->
     <box-module title="{{mainPage.sellWell.title}}">
           
           <view class="courses">          

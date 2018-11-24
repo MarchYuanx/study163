@@ -1,7 +1,7 @@
 // miniprogram/pages/courseInfo/courseInfo.js
-wx.cloud.init() 
-const db = wx.cloud.database();
-const course_info = db.collection('course_info');
+// wx.cloud.init() 
+// const db = wx.cloud.database();
+// const course_info = db.collection('course_info');
 
 const app = getApp()
 
@@ -14,6 +14,7 @@ Page({
    */
   data: {
     status: 1,
+    starMap:[0,1,2,3,4],
     content:{},
     viewDesc:[],
     viewTarget:[],

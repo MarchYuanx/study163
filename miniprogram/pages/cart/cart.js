@@ -1,10 +1,4 @@
-// miniprogram/pages/cart/cart.js
-wx.cloud.init() 
-const db = wx.cloud.database();
-const course_cart = db.collection('course_cart');
-
 const app = getApp()
-
 
 Page({
 
@@ -35,16 +29,28 @@ Page({
     wx.showLoading({
       title: '数据加载中...'
     });
-    // return;
 
-    const promiseArr = cart_coursesId.map(course => new Promise((resolve, reject) =>{
-      course_cart.where({id: course}).get({
-        success: (res) =>{
-          resolve(res.data[0]);
-          // temp_courses.push();          
-        }
-      })
-    }))
+    /*start */ 
+    // const promiseArr = cart_coursesId.map(course => new Promise((resolve, reject) =>{
+    //   course_cart.where({id: course}).get({
+    //     success: (res) =>{
+    //       resolve(res.data[0]);
+    //     }
+    //   })
+    // }))
+    /*cloud */ 
+
+  const promiseArr = cart_coursesId.map(course => new Promise((resolve, reject) =>{
+    wx.cloud.callFunction({
+      name: 'getCart',
+      data: {
+        id: course
+      }
+    }).then(res =>{
+      resolve(res.result.data[0]);
+    })
+
+  }))
 
     Promise
       .all(promiseArr)

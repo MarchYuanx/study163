@@ -1,3 +1,5 @@
+import { indexMock } from '../../utils/indexMock.js';
+
 const app = getApp();
 
 Page({
@@ -69,14 +71,15 @@ Page({
          this.setData({
            mainPage : res.data
          })
-
-
- 
       },
       error:(err) => {
         console.log(err);
       }
     })
+
+    
+    // indexMock("https://www.easy-mock.com/mock/5bda9d1a58caf84108172bab/study163/mainPage")
+
 
   },
   onShow: function () {
