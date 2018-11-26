@@ -4,81 +4,58 @@ const app = getApp();
 
 Page({
   data: {
-    userInfo: {},
-    logged: false,
-    takeSession: false,
-    requestResult: '',
-    // sellWell: [],
-    // special: [],
     mainPage:{},
-    test:{},
-    title:[{
-      "text":"畅销好课",
-      "index":0
-    },{
-      "text":"专题",
-      "index":1
-    },{
-      "text":"办公效率",
-      "index":2
-    },{
-      "text":"职场发展",
-      "index":3
-    },{
-      "text":"语言留学",
-      "index":4
-    },{
-      "text":"金融财会",
-      "index":5
-    },{
-      "text":"职业之外",
-      "index":6
-    },],
-    ads:
-    [
-      {
-        "image": "../../images/ads/1.jpg"
-      },
-      {
-        "image": "../../images/ads/2.jpg"
-      },
-      {
-        "image": "../../images/ads/3.jpg"
-      },
-      {
-        "image": "https://edu-image.nosdn.127.net/e62efdae-0ba9-48bd-8cf7-ce521fcd2fb7.jpg?imageView&amp;crop=0_0_1242_573&amp;quality=100&amp;thumbnail=750y346&amp;type=webp"
-      },
-      {
-        "image": "https://edu-image.nosdn.127.net/c176d36b-e75f-4862-97a5-3f38a7a7ab9f.jpg?imageView&amp;crop=0_0_1242_573&amp;quality=100&amp;thumbnail=750y346&amp;type=webp"
-      },
-      {
-        "image": "https://edu-image.nosdn.127.net/beccf78b-6b92-4303-88d5-613b0e41395e.jpg?imageView&amp;crop=0_0_1242_573&amp;quality=100&amp;thumbnail=750y346&amp;type=webp"
-      },
-      {
-        "image": "https://edu-image.nosdn.127.net/809624c7-db3f-4f4d-bc9b-85a3e8835279.jpg?imageView&amp;crop=0_0_1242_573&amp;quality=100&amp;thumbnail=750y346&amp;type=webp"
-      }
-    ]
+    ads: [{
+      "image": "https://7975-yuanx1998-1257892943.tcb.qcloud.la/ads/1.jpg?sign=3c799c02741459a45d1b11ddf8e87023&t=1543071668"
+    },
+    {
+      "image": "https://7975-yuanx1998-1257892943.tcb.qcloud.la/ads/2.jpg?sign=9f0fe6c27c1e798205fedd00b2ecd54c&t=1543071712"
+    },
+    {
+      "image": "https://7975-yuanx1998-1257892943.tcb.qcloud.la/ads/3.jpg?sign=08729ff3a94e5178c67fb87b54ce22c5&t=1543071727"
+    },
+    {
+      "image": "https://7975-yuanx1998-1257892943.tcb.qcloud.la/ads/4.jpg?sign=d235021dca761c000008970001f7fae1&t=1543071777"
+    },
+    {
+      "image": "https://7975-yuanx1998-1257892943.tcb.qcloud.la/ads/5.jpg?sign=3b2c9299cc6a95fb4e296c66b38da7f6&t=1543071793"
+    },
+    {
+      "image": "https://7975-yuanx1998-1257892943.tcb.qcloud.la/ads/6.jpg?sign=d7f4baed35e1771f465a0491ce2f6af9&t=1543071808"
+    },
+    {
+      "image": "https://7975-yuanx1998-1257892943.tcb.qcloud.la/ads/7.jpg?sign=2b17d97ff2ef6a21d6f01e0d1847cd8b&t=1543071821"
+    }
+  ]
   },
 
   onLoad() {
 
-    wx.request({
-      url: 'https://www.easy-mock.com/mock/5bda9d1a58caf84108172bab/study163/mainPage',
-      success:(res) => {
-        console.log("---easy-mock.data---")
-        console.log(res.data)
+    // wx.request({
+    //   url: 'https://www.easy-mock.com/mock/5bda9d1a58caf84108172bab/study163/mainPage',
+    //   success:(res) => {
+    //     console.log("---easy-mock.data---")
+    //     console.log(res.data)
 
-         this.setData({
-           mainPage : res.data
-         })
-      },
-      error:(err) => {
-        console.log(err);
-      }
-    })
+    //      this.setData({
+    //        mainPage : res.data
+    //      })
+    //   },
+    //   error:(err) => {
+    //     console.log(err);
+    //   }
+    // })
 
     
-    // indexMock("https://www.easy-mock.com/mock/5bda9d1a58caf84108172bab/study163/mainPage")
+    indexMock("https://www.easy-mock.com/mock/5bda9d1a58caf84108172bab/study163/mainPage")
+      .then(res => {
+        this.setData({
+          mainPage:res
+        })
+      })
+      .then(res=>{
+        console.log("mainpage",this.data.mainPage)
+      })
 
 
   },

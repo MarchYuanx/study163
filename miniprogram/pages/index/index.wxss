@@ -39,7 +39,7 @@
 
 
 
- .courses :nth-child(even){
+.courses :nth-child(even){
   margin-right: 0%;
 }
 
