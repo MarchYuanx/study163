@@ -1,5 +1,6 @@
 {
     "usingComponents": {
-        "van-button": "../../vant-weapp/button/index"
+        "van-button": "../../vant-weapp/button/index",
+        "myCourse-module":"../../components/myCourse-module/index"
     }
 }

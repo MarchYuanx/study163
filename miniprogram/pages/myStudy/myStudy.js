@@ -8,7 +8,6 @@ Page({
     my_courses:[],
     my_microSpecialty:[],
     status:1 ,//任务状态 
-    image:"https://img-ph-mirror.nosdn.127.net/hk1QSosoKjxOqe8ZFfV_uA==/6632122197352709289.jpg?imageView&amp;quality=100&amp;thumbnail=224y126"
   },
   onLoad:function(){
     wx.setNavigationBarTitle({
@@ -22,9 +21,12 @@ Page({
     })
   },
   onShow:function(){
-    this.setData({
-      my_courses:app.globalData.my_courses,
-      my_microSpecialty:app.globalData.my_microSpecialty
+    wx.cloud.callFunction({
+      name: 'getMyCourse',
+    }).then(res=>{
+      this.setData({
+        my_courses: res.result.data
+      })
     })
   },
 
