@@ -14,7 +14,6 @@ let indexMock = function(url){
 }
 
 
-
 module.exports = {
     indexMock: indexMock
 }

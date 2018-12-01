@@ -5,6 +5,7 @@ const app = getApp();
 Page({
   data: {
     mainPage:{},
+    url:"https://www.easy-mock.com/mock/5bda9d1a58caf84108172bab/study163/mainPage",
     ads: [{
       "image": "https://7975-yuanx1998-1257892943.tcb.qcloud.la/ads/1.jpg?sign=3c799c02741459a45d1b11ddf8e87023&t=1543071668"
     },
@@ -30,25 +31,10 @@ Page({
   },
 
   onLoad() {
-
-    // wx.request({
-    //   url: 'https://www.easy-mock.com/mock/5bda9d1a58caf84108172bab/study163/mainPage',
-    //   success:(res) => {
-    //     console.log("---easy-mock.data---")
-    //     console.log(res.data)
-
-    //      this.setData({
-    //        mainPage : res.data
-    //      })
-    //   },
-    //   error:(err) => {
-    //     console.log(err);
-    //   }
-    // })
-
-    
-    indexMock("https://www.easy-mock.com/mock/5bda9d1a58caf84108172bab/study163/mainPage")
+    const url = this.data.url;
+    indexMock(url)
       .then(res => {
+        console.log(res)
         this.setData({
           mainPage:res
         })
@@ -56,8 +42,6 @@ Page({
       .then(res=>{
         console.log("mainpage",this.data.mainPage)
       })
-
-
   },
   onShow: function () {
 

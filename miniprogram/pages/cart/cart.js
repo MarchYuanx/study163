@@ -30,16 +30,6 @@ Page({
       title: '数据加载中...'
     });
 
-    /*start */ 
-    // const promiseArr = cart_coursesId.map(course => new Promise((resolve, reject) =>{
-    //   course_cart.where({id: course}).get({
-    //     success: (res) =>{
-    //       resolve(res.data[0]);
-    //     }
-    //   })
-    // }))
-    /*cloud */ 
-
   const promiseArr = cart_coursesId.map(course => new Promise((resolve, reject) =>{
     wx.cloud.callFunction({
       name: 'getCart',
@@ -138,8 +128,6 @@ Page({
     this.getTotalPrice();
   },
   confirm:function(){
-   
-
     this.deleteCart();
 
   },

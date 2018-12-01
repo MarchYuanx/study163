@@ -26,10 +26,6 @@ Page({
       title: "确认订单"
     });
 
-    console.log(options)
-    console.log(options.ids)
-
-
     let orderIds = options.ids.split(",");
     console.log(orderIds)
     this.setData({
@@ -37,14 +33,10 @@ Page({
       orderIds: orderIds
     })
 
-    const promiseArr = orderIds.map(orderId => new Promise((resolve, reject) =>{
-      // course_cart.where({id: orderId}).get({
-      //   success: (res) =>{
-      //     resolve(res.data[0]);
-      //     // temp_courses.push();          
-      //   }
-      // })
+    console.log(options)
+    console.log(options.ids)
 
+    const promiseArr = orderIds.map(orderId => new Promise((resolve, reject) =>{
       wx.cloud.callFunction({
         name: 'getCart',
         data: {
@@ -104,15 +96,10 @@ Page({
         id:order.id
       }
       console.log(myCourse);    
-      app.globalData.my_courses.push(myCourse);
       my_courses.add({data:myCourse})
+    
+
     }
-
-
-    
-    
-
-
   },
 
   submit:function(){

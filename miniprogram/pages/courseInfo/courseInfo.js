@@ -13,6 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:"",
     status: 1,
     starMap:[0,1,2,3,4],
     content:{},
@@ -20,7 +21,6 @@ Page({
     viewTarget:[],
     // title:"",
     cart_coursesId:[],
-    my_courses:[],
     isPaid :false,
     expert:{
       "avatarURL": "http://edu-image.nosdn.127.net/CFD2999B76C502CF3B0CAEAD4375174A.jpg?imageView&amp;thumbnail=120y120&amp;quality=100" ,
@@ -47,27 +47,8 @@ Page({
 
     this.setData({
       cart_coursesId: app.globalData.cart_coursesId,
-      my_courses: app.globalData.my_courses,
+      id: options.id
     })
-
-/*  start */ 
-
-    // course_info.where({id: options.id}).get({
-    //   success: res => {
-        // wx.setNavigationBarTitle({
-        //   title: res.data[0].title
-        // })
-    //     this.setData({
-    //       content: res.data[0],
-    //       viewDesc: viewContent(res.data[0].desc),
-    //       viewTarget: viewContent(res.data[0].targetPerson)
-    //     })
-    //   }
-
-    // })
-    
-
-/*  cloud */
 
     wx.cloud.callFunction({
       // 云函数名称
@@ -98,16 +79,20 @@ Page({
 /*  end */
 
 
+  wx.cloud.callFunction({
+    name: 'getMyCourse',
+  }).then(res=>{
+        for(const my_course of res.result.data){
+          if(options.id === my_course.id){
+            let isPaid = true;
+            this.setData({
+              isPaid
+            })
+            return ;
+          }
+        } 
+    })
 
-    for(const my_course of app.globalData.my_courses){
-      if(options.id === my_course.id){
-        let isPaid = true;
-        this.setData({
-          isPaid
-        })
-        return ;
-      }
-    }  
   },
 
   onClickIcon: function(e){
@@ -135,7 +120,7 @@ Page({
       title:"成功添加到购物车"
     })
   },
-
+  
 
 
   /**
@@ -150,6 +135,10 @@ Page({
    */
   onShow: function () {
    
+    
+
+    
+
   }
 
 

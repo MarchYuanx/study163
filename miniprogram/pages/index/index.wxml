@@ -34,7 +34,7 @@
   </view>
 
 
-    <box-module title="{{mainPage.sellWell.title}}">
+    <box-module title="{{mainPage.sellWell.title}}" >
           
           <view class="courses">          
                 <block wx:for="{{mainPage.sellWell.content}}" wx:key="index" >  
@@ -72,7 +72,7 @@
     </box-module>
 
 
-    <box-module title="办公效率" >
+    <box-module title="办公效率" more="更多">
 
       <view class="courses">
 
@@ -112,7 +112,7 @@
     </box-module>
 
 
-    <box-module title="职场发展" >
+    <box-module title="职场发展" more="更多">
       <view class="courses">
           
                 <block wx:for="{{mainPage.workplace}}" wx:key="index" >  
@@ -139,14 +139,14 @@
           </view>
     </box-module>
 
-    <box-module title="语言留学" >
+    <box-module title="语言留学" more="更多">
 
     </box-module>
 
-    <box-module title="金融财会" >
+    <box-module title="金融财会" more="查看更多">
 
     </box-module>
 
-    <box-module title="职场之外" >
+    <box-module title="职场之外" more="查看更多">
 
     </box-module>

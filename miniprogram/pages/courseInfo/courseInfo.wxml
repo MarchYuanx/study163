@@ -119,12 +119,14 @@
         bind:click="onClickIcon"
       />
     </block>
+    <navigator  url="../confirm/confirm?ids={{content.id}}">   
     <van-goods-action-button class="btn"
       size="mini   "
       text="加入学习"
       type="warning "
       bind:click="onClickButton"
     />
+    </navigator>
   </van-goods-action>
 </block>
 

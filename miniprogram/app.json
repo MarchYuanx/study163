@@ -2,18 +2,14 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
+         
     "pages/test/test",
     
-     
-    "pages/myStudy/myStudy",
-    
-    "pages/confirm/confirm",
-    
-   
+    "pages/myStudy/myStudy",    
+    "pages/confirm/confirm", 
     "pages/account/account", 
     "pages/cart/cart",
-    "pages/courseInfo/courseInfo",
-    
+    "pages/courseInfo/courseInfo",    
     "pages/microSpecialty/microSpecialty",
     "pages/categories/categories",
     "pages/rankings/rankings"
