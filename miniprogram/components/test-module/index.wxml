@@ -1,0 +1,8 @@
+<!--components/test-module/index.wxml-->
+<view>
+  <view>{{data1}}</view>
+  <view>{{data2}}</view>
+  <view>{{data3}}</view>
+  <view>{{data4}}</view>
+
+</view>

@@ -1,14 +1,21 @@
-// components/box-module/box-module.js
+// components/test-module/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    title: {
+    data1: {
       type: String
     },
-    more: {
-      type: String
+    data2: {
+      type: Boolean,
+    },
+    data3:{
+      type: Number
+    },
+    data4:{
+      type: String,
+      value: "test"
     }
   },
 

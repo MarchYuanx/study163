@@ -1,0 +1,49 @@
+.mycourse{
+  width: 100%;
+  background-color: #fff;
+  font-size: 0;
+  padding: 34rpx 20rpx 34rpx 30rpx;
+  border-bottom: 1px solid rgba(221, 221, 221, 0.4);
+  background: #fff;
+
+}
+
+.mycourse image{
+  display: inline-block;
+  width: 220rpx;
+  height: 138rpx;
+  border-radius: 4rpx;
+  margin-right: 20rpx;
+}
+
+.mycourse .info {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  height: 138rpx;
+}
+
+
+.mycourse .info .title{
+  display: inline-block;
+  font-size: 32rpx;
+  line-height: 36rpx;
+  max-width: 440rpx;
+  height: 72rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+}
+
+.mycourse .info .study{
+  position: relative;
+  height: 52rpx;
+  width: 204rpx;
+  color: #2cc17b;
+  font-size: 28rpx;
+  display: block;
+  border: 1px solid #2cc17b;
+  border-radius: 40rpx;
+  text-align: center;
+  line-height: 52rpx;
+}

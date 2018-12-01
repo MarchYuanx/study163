@@ -3,15 +3,10 @@
   <view class="divide"></view>
   <view class="box-module">
     <text class="box-title">{{title}}</text>
-    <block  wx:if="{{title == '办公效率' || title == '职场发展' || title == '语言留学'}}" >
-      <text class="box-more">更多</text>
+    <block wx:if="{{more}}">
+       <text class="box-more">{{more}}</text>
     </block>
-    <block  wx:if="{{title == '金融财会' || title == '职场之外'}}" >
-      <text class="box-more">查看更多</text>
-    </block>
-     
     
-
       <slot />
   </view>
 

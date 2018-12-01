@@ -1,0 +1,10 @@
+<!--components/myCourse-module/index.wxml-->
+<view class="mycourse">
+  <image src="{{image}}" />
+  <view class="info">
+    <view class="title">{{title}}</view>
+    <navigator  url="../courseInfo/courseInfo?id={{cid}}" >
+      <view class="study" >开始学习</view>
+    </navigator>
+  </view> 
+</view> 

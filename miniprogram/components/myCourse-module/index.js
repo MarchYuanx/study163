@@ -1,15 +1,12 @@
-// components/box-module/box-module.js
+// components/myCourse-module/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    title: {
-      type: String
-    },
-    more: {
-      type: String
-    }
+    image: String,
+    title: String,
+    cid: String
   },
 
   /**
