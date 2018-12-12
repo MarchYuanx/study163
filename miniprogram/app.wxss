@@ -49,8 +49,6 @@
 
 }
 
-
-
 .titleBar .status li text.active{
   
   color:#2CC17B;
