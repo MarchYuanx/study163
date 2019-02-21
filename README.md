@@ -1,6 +1,6 @@
 ## Demo展示
 
-![Image text](https://github.com/MarchYuanx/study163/view/view.gif)
+![Image text](https://github.com/MarchYuanx/study163/blob/master/view/view.gif)
 
 项目介绍 
 - https://juejin.im/post/5bf96658518825741e7bd1a4
