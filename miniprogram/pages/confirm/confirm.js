@@ -5,9 +5,7 @@ const courses_info = db.collection('courses_info');
 
 const app = getApp()
 
-
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -45,15 +43,23 @@ Page({
       }).then(res =>{
         resolve(res.result.data[0]);
       })
-
     }))
-
-
-
 
     Promise
       .all(promiseArr)
       .then(data => {
+        data = data.map((item)=>{
+          return {
+            id: item.id,
+            ownername: item.ownername, 
+            headImg: item.headImg,
+            title: item.title,
+            price: item.price,
+            discount: item.discount,
+            isSelected: false}
+          })
+
+
         let total = 0;
         for(let item of data){
           total+=item.price-item.discount;
@@ -64,8 +70,6 @@ Page({
           realPay: total
         })
       })  
-
-      
 
   },
   
@@ -84,32 +88,24 @@ Page({
   },
 
   addMyCourse(){
-    
-
     const orders = this.data.orders;
 
     for(let order of orders){
-
       let myCourse = {
         title:order.title,
-        image:order.image,
+        headImg:order.headImg,
         id:order.id
       }
       console.log(myCourse);    
       my_courses.add({data:myCourse})
-    
-
     }
   },
 
   submit:function(){
-
-
     this.addMyCourse();
     wx.showToast({
       title:"提交成功",
       duration: 800
-
     });
     
     setTimeout(()=>{
@@ -117,13 +113,5 @@ Page({
         url: '../myStudy/myStudy'
       });
     },1000)
-    
-    
-
-      
-
-
-    
-
   }
 })

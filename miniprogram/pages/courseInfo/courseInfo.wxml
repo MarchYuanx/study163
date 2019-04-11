@@ -14,7 +14,7 @@
       <text class="{{status == '2' ? 'active':''}} black" bindtap="showStatus" data-status="2">目录</text>
     </li>
     <li>
-      <text class="{{status == '3' ? 'active':''}} black" bindtap="showStatus" data-status="3">评价</text>
+      <text class="{{status == '3' ? 'active':''}} black" bindtap="showStatus" data-status="3" onClickButton>评价</text>
     </li>
   </ul>
 </view>
@@ -30,11 +30,8 @@
       <view class="tip">
         <view class="tip-title">{{content.title}}</view>
          <view class="tip-stars">
-            <block wx:for="{{starMap}}"wx:key="{{index}}">
-                <text class="star" wx:if="{{content.star>=index+1}}">★</text>
-                <text class="star" wx:if="{{content.star<index+1}}">☆</text>
-            </block>
-                <text class="star-txt" wx:if="{{content.star}}">{{content.star}}分</text>
+            <star-module number="{{content.star}}"></star-module>
+            <text class="star-txt" wx:if="{{content.star}}">{{content.star}}分</text>
           </view>
       </view>
 
@@ -95,11 +92,38 @@
 </block>
 
 <block wx:elif="{{status == '2'}}">
-    <van-cell title="目录" />
+    <van-cell title="课程目录" />
 </block>
 
 <block wx:else>
-    <van-cell title="全部评价" />
+    <view class="comment">
+      <view style="margin-bottom: 18px ">  
+        <span class="comment_title">全部评价</span>
+        <span class="comment_count">共{{comment.length}}个评价</span>
+      </view>
+    
+    <block wx:if="{{comment.length<=0}}">
+      <view class="empty">
+        <view class="empty-img"></view>
+        <view class="empty-txt">暂无评价</view>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view wx:for="{{comment}}" wx:key="{{index}}">
+        <view class="comment_content">
+          <image class="avatar" src="{{comment[index].avatar}}" />
+          <view class="name">{{comment[index].name}}</view>
+          <view style="float: right">
+            <star-module number="{{comment[index].star}}"></star-module>
+            <view class="time">{{comment[index].time}}</view>
+          </view>
+          <view class="text">{{comment[index].text}}</view> 
+        </view>
+      </view>
+    </block>
+
+    </view>
 </block>
 
 

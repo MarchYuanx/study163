@@ -5,7 +5,7 @@
   <swiper wx:if="{{ads.length}}" autoplay="ture" indicator-dots="true" circular="true" class="ads">
         <block wx:for="{{ads}}" wx:for-item="ad" wx:key="index">
           <swiper-item>
-            <image src="{{ad.image}}" data-id="{{index}}" mode="aspectFill"/>       
+              <image src="{{ad.image}}" data-id="{{index}}" mode="aspectFill"/>   
           </swiper-item>       
         </block> 
   </swiper>

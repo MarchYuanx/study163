@@ -3,11 +3,11 @@ const cloud = require('wx-server-sdk')
 
 cloud.init()
 const db = cloud.database();
-const course_info = db.collection('course_info');
+const course_comment = db.collection('course_comment');
 
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  let info = course_info.where({ id: event.id }).get();
-  return info
+  let comment = course_comment.where({ id: event.id }).get();
+  return comment
 }

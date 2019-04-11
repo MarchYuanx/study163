@@ -147,3 +147,34 @@
   background-color: #FF632A;
   opacity: 0.97;
 }
+
+/* ---empty--- */
+
+
+.empty {
+  width: 600rpx;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.empty-img {
+  width: 200rpx;
+  height: 140rpx;
+  margin: 0 auto;
+  background: url(https://swap.stu.126.net/res/images/wap/common/blank.png?171e09d…) 0 0 no-repeat;
+  background-size: 200rpx 140rpx;
+}
+
+.empty-txt {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  line-height: 1.3;
+  text-align: center;
+  color: #3C4A55;
+}

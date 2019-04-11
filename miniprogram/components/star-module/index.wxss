@@ -1,0 +1,5 @@
+/* components/star-module/index.wxss */
+.star{
+  color: #2CC17B;
+  margin-right: 8rpx; 
+}

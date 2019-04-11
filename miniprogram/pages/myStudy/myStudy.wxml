@@ -26,7 +26,7 @@
           <view wx:else>
             <view wx:for="{{my_courses}}" wx:key="index">
 
-              <myCourse-module image="{{item.image}}" title="{{item.title}}" cid="{{item.id}}"></myCourse-module>
+              <myCourse-module image="{{item.headImg}}" title="{{item.title}}" cid="{{item.id}}"></myCourse-module>
 
             </view>
             <view class="bottom">已经到达底部了亲</view>

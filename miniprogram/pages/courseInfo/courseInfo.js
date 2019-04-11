@@ -15,7 +15,6 @@ Page({
   data: {
     id:"",
     status: 1,
-    starMap:[0,1,2,3,4],
     content:{},
     viewDesc:[],
     viewTarget:[],
@@ -26,11 +25,32 @@ Page({
       "avatarURL": "http://edu-image.nosdn.127.net/CFD2999B76C502CF3B0CAEAD4375174A.jpg?imageView&amp;thumbnail=120y120&amp;quality=100" ,
       "intro": "行家是云课堂优秀讲师推荐栏目。在这个栏目中，我们将优选课程内容优质、教学水平优秀、对学生负责的优秀讲师和讲师团队，为用户学习高质量内容提供建议。",
       "name": "云课堂行家"
-
-    }
+    },
+    comment:[]
   },
   showStatus: function(e){
     let status = e.currentTarget.dataset.status;
+    if(status === '3'){
+      wx.cloud.callFunction({
+        // 云函数名称
+        name: 'getComment',
+        // 传给云函数的参数
+        data: {
+          id: this.data.id
+        }
+      })
+      .then(res => {
+        if(res.result.data.length > 0){
+          console.log("[getComment]",res.result.data) 
+          this.setData({
+            comment: res.result.data[0].comment
+          })
+        }
+        
+  
+      })
+      .catch(console.error)
+    }
     this.setData({
       status:status
     })
@@ -40,7 +60,6 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-
     wx.showLoading({
       title: '数据加载中...'
     });
@@ -72,7 +91,6 @@ Page({
       })
 
       wx.hideLoading()
-
     })
     .catch(console.error)
   
@@ -92,14 +110,12 @@ Page({
           }
         } 
     })
-
   },
 
   onClickIcon: function(e){
     const id = e.currentTarget.dataset.id;
     const cart_coursesId = this.data.cart_coursesId;
 
-    
     for(const cart_courseId of cart_coursesId){
       if(id === cart_courseId){
         wx.showToast({
@@ -111,23 +127,19 @@ Page({
     }
     
     app.globalData.cart_coursesId.push(id);
-
     console.log('[app.globalData.cart_coursesId]',app.globalData.cart_coursesId)
    
-
     wx.showToast({
       icon:"none",
       title:"成功添加到购物车"
     })
   },
   
-
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -135,12 +147,6 @@ Page({
    */
   onShow: function () {
    
-    
-
-    
-
   }
-
-
   
 })

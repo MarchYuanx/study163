@@ -13,11 +13,11 @@
       
       <view class="order-title">机构 <view class="order-title name">{{order.ownername}}</view></view>
       <view class="order-info">
-        <image src="{{order.image}}" />
+        <image src="{{order.headImg}}" />
 
         <view class="order-info-ctx">
             <view class="ctx-title">{{order.title}}</view>
-            <view class="ctx-time">{{order.time}}</view>
+            <!-- <view class="ctx-time">{{order.time}}</view> -->
             <view class="ctx-price">￥{{order.price}}</view>
         </view>
         <block wx:if="{{order.discount}}">

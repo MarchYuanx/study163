@@ -1,0 +1,5 @@
+<!--components/star-module/index.wxml-->
+<block wx:for="{{starMap}}" wx:key="{{index}}">
+  <text class="star" wx:if="{{number+0.5>=index+1}}">★</text>
+  <text class="star" wx:if="{{number+0.5<index+1}}">☆</text>
+</block>

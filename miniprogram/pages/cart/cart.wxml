@@ -28,11 +28,11 @@
                         </block>
                     
                     
-                        <image class="course-img" src="{{courses[index].image}}" />
+                        <image class="course-img" src="{{courses[index].headImg}}" />
                         
                         <view class="course-ctx">
                             <view class="ctx-title">{{courses[index].title}}</view>
-                            <view class="ctx-time">{{courses[index].time}}</view>
+                            <!-- <view class="ctx-time">{{courses[index].time}}</view> -->
                             <view class="ctx-price">￥{{courses[index].price}}</view>
                         </view>
                         <view class="course-del" data-index="{{index}}" bindtap="deleteList">

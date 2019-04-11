@@ -45,7 +45,17 @@ Page({
     Promise
       .all(promiseArr)
       .then(data => {
-        console.log(data);
+        data = data.map((item)=>{
+          return {
+            id: item.id,
+            ownername: item.ownername, 
+            headImg: item.headImg,
+            title: item.title,
+            price: item.price,
+            isSelected: false}
+          })
+
+        console.log('[data]',data);
         wx.hideLoading()
         this.setData({
           courses: data
