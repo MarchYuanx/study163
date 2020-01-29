@@ -17,8 +17,8 @@
     </block>
 
   </view>
-  <view class="vip">开通VIP会员</view>
-  <van-cell title="我的订单" icon="debit-pay" is-link />
+  <!-- <view class="vip">开通VIP会员</view> -->
+  <van-cell title="我的订单" icon="debit-pay" bindtap="toOrder"  is-link />
   <van-cell title="我的优惠券" icon="coupon" is-link />
 
   <van-cell title="我的购物车" icon="shopping-cart" bindtap="toCart"  is-link/>

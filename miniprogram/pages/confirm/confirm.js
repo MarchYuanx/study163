@@ -12,7 +12,7 @@ Page({
   data: {
     userInfo:{},
     orderIds:[],
-    orders:[],
+    orders:[], 
     realPay:0
   },
 

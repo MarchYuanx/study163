@@ -1,0 +1,45 @@
+/* miniprogram/pages/login/login.wxss */
+.login{
+  background-image: url(//edu-image.nosdn.127.net/85c3396e-3851-4c1a-ad4b-d1e062ad53f2.png?imageView&quality=100);
+  background-size:100%;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+
+}
+
+.login image,.login button{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.login image{
+  height: 90px;
+  width: 90px;
+  top: 100px;
+}
+
+.login button{
+  top: 280px;
+  width: 80%;
+  background: #2CC17B;
+  color: #ffffff
+}
+
+.login .line{
+  height: 1px;
+  background: #A4A9B2;
+  box-flex: 1;
+  flex: 1;
+  margin: 228px 20px 0 20px;
+}
+
+.login .tip{
+  color: #A4A9B2;
+
+  font-size: 13px;
+  margin-top: 220px;
+}

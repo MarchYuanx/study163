@@ -1,39 +1,41 @@
 
 
-  <van-search placeholder="搜索课程" v-model="value" style=" text-align: center;"/>
+  <van-search placeholder="搜索课程" v-model="value" style=" text-align: center;">
+  </van-search>
 
   <swiper wx:if="{{ads.length}}" autoplay="ture" indicator-dots="true" circular="true" class="ads">
         <block wx:for="{{ads}}" wx:for-item="ad" wx:key="index">
           <swiper-item>
-              <image src="{{ad.image}}" data-id="{{index}}" mode="aspectFill"/>   
+              <image src="{{ad.image}}" data-id="{{ad.id}}" mode="aspectFill"/>   
           </swiper-item>       
         </block> 
   </swiper>
 
   <view class="icons">
-    <block wx:for="{{mainPage.icon}}" wx:key="index" >
+    <block wx:for="{{icons}}" wx:for-item="icon" wx:key="index" >
         <view class="icon">
           <block wx:if="{{index == 0}}">
             <navigator  url="../microSpecialty/microSpecialty" > 
-              <image src="{{item.image}}" />
+              <image src="{{icon.image}}" />
             </navigator>
           </block>
-          <block wx:elif="{{index == (mainPage.icon.length-1)}}">
+          <block wx:elif="{{index == (icons.length-1)}}">
             <navigator  url="../rankings/rankings" > 
-              <image src="{{item.image}}" />
+              <image src="{{icon.image}}" />
             </navigator>
           </block>
           <block wx:else>
-            <navigator  url="../categories/categories?id={{item.index}}" > 
-              <image src="{{item.image}}" />
+            <navigator  url="../categories/categories?id={{icon.index}}" > 
+              <image src="{{icon.image}}" />
             </navigator>
           </block>
-          <text>{{item.title}}</text>
+          <text>{{icon.title}}</text>
         </view>       
     </block >
   </view>
 
 
+    
     <box-module title="{{mainPage.sellWell.title}}" >
           
           <view class="courses">          
@@ -42,7 +44,7 @@
                   <block wx:if="{{item.isBig}}">
                     <view class="course_big"  >
                       <navigator  url="../courseInfo/courseInfo?id={{item.id}}" >     
-                        <image class="course-image_big " src="{{item.image}}" /> 
+                        <image lazy-load="{{true}}" class="course-image_big " src="{{item.image}}" /> 
                         <text class="course-title">{{item.title}}</text>
                         <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
                       </navigator>   
@@ -53,7 +55,7 @@
                   <block wx:else>
                     <view class="course" > 
                       <navigator  url="../courseInfo/courseInfo?id={{item.id}}" >      
-                        <image class="course-image " src="{{item.image}}" /> 
+                        <image lazy-load="{{true}}" class="course-image " src="{{item.image}}" /> 
                         <text class="course-title">{{item.title}}</text>
                         <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
                       </navigator>   
@@ -69,7 +71,7 @@
       <block  wx:for="{{mainPage.special}}" wx:key="index">
         <special-module image="{{item.image}}" />
       </block>
-    </box-module>
+    </box-module> 
 
 
     <box-module title="办公效率" more="更多">
@@ -82,7 +84,7 @@
                    
                         <view class="course_big"  >
                           <navigator  url="../courseInfo/courseInfo" >   
-                            <image class="course-image_big " src="{{item.image}}" /> 
+                            <image lazy-load="{{true}}" class="course-image_big " src="{{item.image}}" /> 
                             <text class="course-title">{{item.title}}</text>
                             <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
                           </navigator> 
@@ -96,7 +98,7 @@
                        
                         <view class="course" >  
                           <navigator  url="../courseInfo/courseInfo" > 
-                            <image class="course-image " src="{{item.image}}" /> 
+                            <image lazy-load="{{true}}" class="course-image " src="{{item.image}}" /> 
                             <text class="course-title">{{item.title}}</text>
                             <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
                           </navigator >
@@ -119,7 +121,7 @@
 
                   <block wx:if="{{item.isBig}}">
                     <view class="course_big"  >  
-                      <image class="course-image_big " src="{{item.image}}" /> 
+                      <image lazy-load="{{true}}" class="course-image_big " src="{{item.image}}" /> 
                       <text class="course-title">{{item.title}}</text>
                       <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
                     </view> 
@@ -147,6 +149,6 @@
 
     </box-module>
 
-    <box-module title="职场之外" more="查看更多">
+    <!-- <box-module title="职场之外" more="查看更多">
 
-    </box-module>
+    </box-module> -->

@@ -10,6 +10,7 @@ Page({
     status:1 ,//任务状态 
   },
   onLoad:function(){
+
     wx.setNavigationBarTitle({
       title: "我的学习"
     })
@@ -21,13 +22,20 @@ Page({
     })
   },
   onShow:function(){
-    wx.cloud.callFunction({
-      name: 'getMyCourse',
-    }).then(res=>{
-      this.setData({
-        my_courses: res.result.data
+    if(app.globalData.userInfo === null){
+      wx.navigateTo({
+        url: '../login/login'
       })
-    })
+    }else{
+      wx.cloud.callFunction({
+        name: 'getMyCourse',
+      }).then(res=>{
+        this.setData({
+          my_courses: res.result.data
+        })
+      })
+    }
+
   },
 
 

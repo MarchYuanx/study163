@@ -1,22 +1,24 @@
 {
   "cloud": true,
   "pages": [
-    "pages/index/index",        
-    "pages/test/test",  
-    "pages/myStudy/myStudy",    
-    "pages/confirm/confirm", 
-    "pages/account/account", 
+    "pages/index/index",
+    "pages/login/login",
+    "pages/test/test",
+    "pages/myStudy/myStudy",
+    "pages/confirm/confirm",
+    "pages/account/account",
     "pages/cart/cart",
-    "pages/courseInfo/courseInfo",    
+    "pages/courseInfo/courseInfo",
     "pages/microSpecialty/microSpecialty",
     "pages/categories/categories",
-    "pages/rankings/rankings"
+    "pages/rankings/rankings",
+    "pages/order/order"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "网易云课堂",
+    "navigationBarTitleText": "云课堂",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -43,5 +45,6 @@
         "selectedIconPath": "images/icon/account-active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -1,8 +1,7 @@
 <!--miniprogram/pages/courseInfo/courseInfo.wxml-->
 <page>
 <view class="pic">
-    <image src="{{content.headImg}}"
-    class="headImg" mode="widthFix"></image>
+    <image src="{{content.headImg}}" class="headImg" ></image>
 </view>
 
 <view class="titleBar">
@@ -22,8 +21,6 @@
 
 <block wx:if="{{status == '1'}}">
 
-  
-
   <van-cell-group>
 
     <view class="tips">
@@ -34,7 +31,6 @@
             <text class="star-txt" wx:if="{{content.star}}">{{content.star}}分</text>
           </view>
       </view>
-
 
       <view class="tip tip-price" wx:if="{{content.price-content.discount>0}}">￥{{content.price-content.discount}}</view>
 
@@ -75,31 +71,44 @@
           <view class="teacherIntro">{{expert.intro}}</view>
         </block>
       </view>
-
-
-
-
-
-
-
-<!-- end -->
-
-
-
-    
   </van-cell-group>
 
 </block>
 
 <block wx:elif="{{status == '2'}}">
-    <van-cell title="课程目录" />
+  <view class="playingVideo" wx:if="{{videoSrc}}">
+      <video id="video" src="{{videoSrc}}" binderror="videoErrorCallback" controls></video>
+  </view>
+  <view class="videoList">
+    <view style="margin-bottom: 18px ">  
+      <span class="title">课程目录</span>
+      <span class="count">共{{videoList.length}}章</span>
+    </view>   
+
+    <block wx:if="{{videoList.length<=0}}">
+      <view class="empty">
+        <view class="empty-img"></view>
+        <view class="empty-txt">暂无章节</view>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view wx:for="{{videoList}}" wx:key="{{index}}">
+        <view class="video_text">
+          <view bindtap="showVideo" data-index="{{index}}">{{index+1}}. {{videoList[index].text}}</view>
+          
+        </view>
+      </view>
+    </block>
+
+  </view>
 </block>
 
 <block wx:else>
     <view class="comment">
       <view style="margin-bottom: 18px ">  
-        <span class="comment_title">全部评价</span>
-        <span class="comment_count">共{{comment.length}}个评价</span>
+        <span class="title">全部评价</span>
+        <span class="count">共{{comment.length}}个评价</span>
       </view>
     
     <block wx:if="{{comment.length<=0}}">
@@ -112,13 +121,13 @@
     <block wx:else>
       <view wx:for="{{comment}}" wx:key="{{index}}">
         <view class="comment_content">
-          <image class="avatar" src="{{comment[index].avatar}}" />
-          <view class="name">{{comment[index].name}}</view>
+          <image class="avatar" src="{{comment[comment.length-1-index].avatar}}" />
+          <view class="name">{{comment[comment.length-1-index].name}}</view>
           <view style="float: right">
-            <star-module number="{{comment[index].star}}"></star-module>
-            <view class="time">{{comment[index].time}}</view>
+            <star-module number="{{comment[comment.length-1-index].star}}"></star-module>
+            <view class="time">{{comment[comment.length-1-index].time}}</view>
           </view>
-          <view class="text">{{comment[index].text}}</view> 
+          <view class="text">{{comment[comment.length-1-index].text}}</view> 
         </view>
       </view>
     </block>
@@ -126,32 +135,39 @@
     </view>
 </block>
 
-
-<block wx:if="{{isPaid}}">
-  <view class="foot">打开网易云课堂APP学习 支持倍速播放<view class="arrow"></view>
-  </view>
-</block>
-
-
-<block wx:else>
-  <van-goods-action>
-    <block wx:if="{{content.price>0}}">
-      <van-goods-action-icon
-        data-id="{{content.id}}"
-        icon="cart"
-        text="加入购物车 "
-        bind:click="onClickIcon"
-      />
+  <block wx:if="{{!userInfo}}">
+    <view class="login" bindtap="login">  您还没有登录哦~~ 请赶快登录吧 </view>
+  </block>
+  <block wx:else>
+    <block wx:if="{{isPaid}}">
+      <view class="foot" bindtap="showStudy">
+        我们愈是学习愈觉得自己的贫乏 — 雪莱
+        <view class="arrow"></view>
+      </view>
     </block>
-    <navigator  url="../confirm/confirm?ids={{content.id}}">   
-    <van-goods-action-button class="btn"
-      size="mini   "
-      text="加入学习"
-      type="warning "
-      bind:click="onClickButton"
-    />
-    </navigator>
-  </van-goods-action>
-</block>
+
+    <block wx:else >
+      <van-goods-action>
+        <block wx:if="{{content.price>0}}">
+          <van-goods-action-icon
+            data-id="{{content.id}}"
+            icon="cart"
+            text="加入购物车 "
+            bind:click="onClickIcon"
+          />
+        </block>
+        <navigator  url="../confirm/confirm?ids={{content.id}}">   
+        <van-goods-action-button class="btn"
+          size="mini   "
+          text="加入学习"
+          type="warning "
+          bind:click="onClickButton"
+        />
+        </navigator>
+      </van-goods-action>
+    </block>
+  </block>
+
+
 
 </page>
