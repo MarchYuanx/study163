@@ -119,7 +119,7 @@
     </block>
 
     <block wx:else>
-      <view wx:for="{{comment}}" wx:key="{{index}}">
+      <view wx:for="{{comment}}" wx:key="index">
         <view class="comment_content">
           <image class="avatar" src="{{comment[comment.length-1-index].avatar}}" />
           <view class="name">{{comment[comment.length-1-index].name}}</view>

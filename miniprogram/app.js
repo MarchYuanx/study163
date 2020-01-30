@@ -1,9 +1,10 @@
 App({
 
   onLaunch: function () {
-    
+    const userInfo = wx.getStorageSync('userInfo')
+
     this.globalData = {
-      userInfo: null,
+      userInfo: userInfo || null,
       cart_coursesId:[],
     }  
   }

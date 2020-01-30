@@ -12,12 +12,6 @@ Page({
     icons: []
   },
 
-  onShareAppMessage(){
-    return {
-      title: 'Cloudam'
-    }
-  },
-
   onLoad() {
     const url = this.data.url;
     indexMock(url)
@@ -31,7 +25,7 @@ Page({
         console.log("mainpage",this.data.mainPage)
       })
 
-
+    //获取swiper数据
     db.collection('swiper').limit(6).get()
       .then(res=>{
         console.log('swiper data',res.data)
@@ -43,6 +37,7 @@ Page({
         console.log(err)
       })
 
+    //获取icon数据
     db.collection('icon').limit(8).get()
       .then(res=>{
         console.log('icon data',res.data)
@@ -53,14 +48,6 @@ Page({
       .catch(err=>{
         console.log(err)
       })
-
-    // db.collection('swiper').doc('19a8a00c-3265-4383-9479-9995dedcf7df').get()
-    //   .then(res=>{
-    //     console.log(res)
-    //   })
-
-    
-    wx.showShareMenu()
   },
   onShow: function () {
 

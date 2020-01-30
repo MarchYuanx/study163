@@ -50,11 +50,10 @@
     color: #999999;
 }
 
-.vip{
-    height: 68rpx;
-    line-height: 68rpx;
-    padding: 0 32rpx;
-    background-color: #ff5151;
-    color:white;
-    font-size: 32rpx;
+.share-btn{
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: inline;
+    text-align: left;
 }

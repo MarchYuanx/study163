@@ -1,7 +1,6 @@
 
 
-  <van-search placeholder="搜索课程" v-model="value" style=" text-align: center;">
-  </van-search>
+  <van-search placeholder="搜索课程" v-model="value" style=" text-align: center;"/>
 
   <swiper wx:if="{{ads.length}}" autoplay="ture" indicator-dots="true" circular="true" class="ads">
         <block wx:for="{{ads}}" wx:for-item="ad" wx:key="index">

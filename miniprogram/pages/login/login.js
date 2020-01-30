@@ -68,13 +68,21 @@ Page({
 
   },
   getUserInfo: function(e) {
-    // console.log(e.detail.userInfo.avatarUrl)
-    // console.log(e)
     app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    
+    wx.cloud.callFunction({
+      name: 'login'
+    }).then(res=>{
+      console.log(res.result.openid)
+      e.detail.userInfo.openid = res.result.openid
+      app.globalData.userInfo.openid = res.result.openid
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+      wx.setStorageSync('userInfo',e.detail.userInfo)
     })
+  
     wx.navigateBack({
       delta: 1
     })

@@ -11,8 +11,6 @@
   </ul>
 </view>
 
-  
-
   <scroll-view class="lists" scroll-y>
     
         <block wx:if="{{status == '1'}}">

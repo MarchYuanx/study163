@@ -17,7 +17,7 @@
     </block>
 
   </view>
-  <!-- <view class="vip">开通VIP会员</view> -->
+
   <van-cell title="我的订单" icon="debit-pay" bindtap="toOrder"  is-link />
   <van-cell title="我的优惠券" icon="coupon" is-link />
 
@@ -27,7 +27,10 @@
     </template> -->
   <van-cell title="我的学习卡" icon="card" is-link />
   <view class="divide"></view>
-  <van-cell title="分享赚学费" icon="balance-pay" is-link />
+  
+  <button open-type="share" class="share-btn">
+    <van-cell title="分享赚学费" icon="balance-pay" is-link />
+  </button>
 </van-cell-group>
 
 
