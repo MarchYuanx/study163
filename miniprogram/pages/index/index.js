@@ -11,6 +11,32 @@ Page({
     ads: [],
     icons: []
   },
+  getDB(){
+
+    //获取swiper数据
+    db.collection('swiper').limit(6).get()
+    .then(res=>{
+      console.log('swiper data',res.data)
+      this.setData({
+        ads: res.data
+      })
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+
+    //获取icon数据
+    db.collection('icon').limit(8).get()
+    .then(res=>{
+      console.log('icon data',res.data)
+      this.setData({
+        icons: res.data
+      })
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  },
 
   onLoad() {
     const url = this.data.url;
@@ -25,29 +51,7 @@ Page({
         console.log("mainpage",this.data.mainPage)
       })
 
-    //获取swiper数据
-    db.collection('swiper').limit(6).get()
-      .then(res=>{
-        console.log('swiper data',res.data)
-        this.setData({
-          ads: res.data
-        })
-      })
-      .catch(err=>{
-        console.log(err)
-      })
-
-    //获取icon数据
-    db.collection('icon').limit(8).get()
-      .then(res=>{
-        console.log('icon data',res.data)
-        this.setData({
-          icons: res.data
-        })
-      })
-      .catch(err=>{
-        console.log(err)
-      })
+      this.getDB()
   },
   onShow: function () {
 
