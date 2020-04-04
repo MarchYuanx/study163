@@ -1,153 +1,42 @@
+<van-search placeholder="搜索课程" v-model="value" style=" text-align: center;" />
 
+<swiper wx:if="{{ads.length}}" autoplay="ture" indicator-dots="true" circular="true" class="ads">
+  <block wx:for="{{ads}}" wx:for-item="ad" wx:key="index">
+    <swiper-item>
+      <image src="{{ad.image}}" data-id="{{ad.id}}" mode="aspectFill" />
+    </swiper-item>
+  </block>
+</swiper>
 
-  <van-search placeholder="搜索课程" v-model="value" style=" text-align: center;"/>
-
-  <swiper wx:if="{{ads.length}}" autoplay="ture" indicator-dots="true" circular="true" class="ads">
-        <block wx:for="{{ads}}" wx:for-item="ad" wx:key="index">
-          <swiper-item>
-              <image src="{{ad.image}}" data-id="{{ad.id}}" mode="aspectFill"/>   
-          </swiper-item>       
-        </block> 
-  </swiper>
-
-  <view class="icons">
-    <block wx:for="{{icons}}" wx:for-item="icon" wx:key="index" >
-        <view class="icon">
-          <block wx:if="{{index == 0}}">
-            <navigator  url="../microSpecialty/microSpecialty" > 
-              <image src="{{icon.image}}" />
-            </navigator>
-          </block>
-          <block wx:elif="{{index == (icons.length-1)}}">
-            <navigator  url="../rankings/rankings" > 
-              <image src="{{icon.image}}" />
-            </navigator>
-          </block>
-          <block wx:else>
-            <navigator  url="../categories/categories?id={{icon.index}}" > 
-              <image src="{{icon.image}}" />
-            </navigator>
-          </block>
-          <text>{{icon.title}}</text>
-        </view>       
-    </block >
-  </view>
-
-
-    
-    <box-module title="{{mainPage.sellWell.title}}" >
-          
-          <view class="courses">          
-                <block wx:for="{{mainPage.sellWell.content}}" wx:key="index" >  
-
-                  <block wx:if="{{item.isBig}}">
-                    <view class="course_big"  >
-                      <navigator  url="../courseInfo/courseInfo?id={{item.id}}" >     
-                        <image lazy-load="{{true}}" class="course-image_big " src="{{item.image}}" /> 
-                        <text class="course-title">{{item.title}}</text>
-                        <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
-                      </navigator>   
-                    </view> 
-                    <view style="display:none"></view>  
-                  </block>
-
-                  <block wx:else>
-                    <view class="course" > 
-                      <navigator  url="../courseInfo/courseInfo?id={{item.id}}" >      
-                        <image lazy-load="{{true}}" class="course-image " src="{{item.image}}" /> 
-                        <text class="course-title">{{item.title}}</text>
-                        <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
-                      </navigator>   
-                    </view> 
-                  </block>
-
-                </block>
-          </view>
-
-    </box-module>
-        
-    <box-module title="专题" >
-      <block  wx:for="{{mainPage.special}}" wx:key="index">
-        <special-module image="{{item.image}}" />
+<view class="icons">
+  <block wx:for="{{icons}}" wx:for-item="icon" wx:key="index">
+    <view class="icon">
+      <block wx:if="{{index == 0}}">
+        <navigator url="../microSpecialty/microSpecialty">
+          <image src="{{icon.image}}" />
+        </navigator>
       </block>
-    </box-module> 
+      <block wx:elif="{{index == (icons.length-1)}}">
+        <navigator url="../rankings/rankings">
+          <image src="{{icon.image}}" />
+        </navigator>
+      </block>
+      <block wx:else>
+        <navigator url="../categories/categories?id={{icon.index}}">
+          <image src="{{icon.image}}" />
+        </navigator>
+      </block>
+      <text>{{icon.title}}</text>
+    </view>
+  </block>
+</view>
+
+<block wx:for="{{mainPage}}" wx:key="index">
+  <box-module data="{{item}}"></box-module>
+</block>
 
 
-    <box-module title="办公效率" more="更多">
-
-      <view class="courses">
-
-                <block wx:for="{{mainPage.office}}" wx:key="index" >  
-                   
-                    <block wx:if="{{item.isBig}}">
-                   
-                        <view class="course_big"  >
-                          <navigator  url="../courseInfo/courseInfo" >   
-                            <image lazy-load="{{true}}" class="course-image_big " src="{{item.image}}" /> 
-                            <text class="course-title">{{item.title}}</text>
-                            <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
-                          </navigator> 
-                        </view> 
-          
-                      <view style="display:none"></view>  
-                      
-                    </block>
-
-                    <block wx:else>
-                       
-                        <view class="course" >  
-                          <navigator  url="../courseInfo/courseInfo" > 
-                            <image lazy-load="{{true}}" class="course-image " src="{{item.image}}" /> 
-                            <text class="course-title">{{item.title}}</text>
-                            <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
-                          </navigator >
-                        </view> 
-                        
-                    </block>
-                   
-                </block>
-
-  
-      </view>
-
-    </box-module>
-
-
-    <box-module title="职场发展" more="更多">
-      <view class="courses">
-          
-                <block wx:for="{{mainPage.workplace}}" wx:key="index" >  
-
-                  <block wx:if="{{item.isBig}}">
-                    <view class="course_big"  >  
-                      <image lazy-load="{{true}}" class="course-image_big " src="{{item.image}}" /> 
-                      <text class="course-title">{{item.title}}</text>
-                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
-                    </view> 
-                    <view style="display:none"></view>  
-                  </block>
-
-                  <block wx:else>
-                    <view class="course" >  
-                      <image class="course-image " src="{{item.image}}" /> 
-                      <text class="course-title">{{item.title}}</text>
-                      <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
-                    </view> 
-                  </block>
-
-                </block>
-  
-          </view>
-    </box-module>
-
-    <box-module title="语言留学" more="更多">
-
-    </box-module>
-
-    <box-module title="金融财会" more="查看更多">
-
-    </box-module>
-
-    <!-- <box-module title="职场之外" more="查看更多">
-
-    </box-module> -->
+<!-- <box-module data="{{mainPage.sellWell}}"></box-module>
+<box-module data="{{mainPage.special}}"></box-module>
+<box-module data="{{mainPage.office}}" ></box-module>
+<box-module data="{{mainPage.workplace}}"></box-module> -->

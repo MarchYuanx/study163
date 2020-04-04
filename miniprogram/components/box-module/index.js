@@ -4,11 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    title: {
-      type: String
-    },
-    more: {
-      type: String
+    data:{
+      type: Object
     }
   },
 

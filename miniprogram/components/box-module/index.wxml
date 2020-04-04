@@ -1,13 +1,26 @@
 <!--components/box-module/box-module.wxml-->
 <!-- <view> -->
-  <view class="divide"></view>
-  <view class="box-module">
-    <text class="box-title">{{title}}</text>
-    <block wx:if="{{more}}">
-       <text class="box-more">{{more}}</text>
-    </block>
-    
-      <slot />
-  </view>
+<view class="divide"></view>
+<view class="box-module">
+  <text class="box-title">{{data.title}}</text>
 
-<!-- </view> -->
+  <view class="courses">
+    <block wx:for="{{data.content}}" wx:key="index">
+      <block wx:if="{{item.isSpecial}}">
+        <view class="course_special">
+          <image lazy-load="{{true}}" class="course-image " src="{{item.image}}" />
+        </view>
+      </block>
+
+      <block wx:else>
+        <view class="{{item.isBig ? 'course_big': 'course'}}">
+          <navigator url="../courseInfo/courseInfo?id={{item.id}}">
+            <image lazy-load="{{true}}" class="course-image " src="{{item.image}}" />
+            <text class="course-title">{{item.title}}</text>
+            <text class="course-price" wx:if="{{item.price > 0}}">￥{{item.price}}</text>
+          </navigator>
+        </view>
+      </block>
+    </block>
+  </view>
+</view>

@@ -7,7 +7,7 @@ const db = wx.cloud.database();
 Page({
   data: {
     mainPage:{},
-    url:"https://www.easy-mock.com/mock/5bda9d1a58caf84108172bab/study163/mainPage",
+    url:"https://www.fastmock.site/mock/d0458f8d6737fec913f5decca8db680c/study163/courses",
     ads: [],
     icons: []
   },
